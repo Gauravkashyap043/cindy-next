@@ -1,12 +1,11 @@
 import React from 'react';
-import styles from "./shopBy.module.scss"
 interface Props {
   name: string;
 }
 
 const ShopBy: React.FC<Props> = ({ name }) => {
   return (
-    <div className={`${styles.container} flex items-center my-[40px]`}>
+    <div className={`flex items-center my-[40px]`}>
       <div className=" border rounded-full flex justify-center items-center">
         <p className="font-[500] text-[20px]">{name}</p>
       </div>
