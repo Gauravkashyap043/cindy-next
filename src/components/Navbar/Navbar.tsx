@@ -18,7 +18,7 @@ const Navbar: React.FC = () : JSX.Element => {
 
   return (
     <nav className="w-full h-[120px] m-auto bg-white">
-      <div className="w-[75%] min-[1608px]:w-[75%] min-[1400px]:w-[90%] min-[1344px]:w-[95%] min-[1270px]:w-[98%] max-[1270px]:w-[98%] m-auto h-full flex justify-between items-center bg-white main-container">
+      <div className="w-[75%] m-auto h-full flex justify-between items-center bg-white main-container">
         <div className="w-[73px] h-[73px] max-[474px]:w-[65px] max-[440]:w-[55px]">
           <Image src={logo} alt="this is logo" className="cursor-pointer" />
         </div>
