@@ -30,7 +30,7 @@ export const cardFavItems = [
     },
     {
         id: 2,
-        name: "Apple iphome 14 pro max (256gb) - Deep Purple",
+        name: "Apple iphome 14 pro (512gb) - Dark red",
         type: "fav",
         image:
             iphone,
@@ -75,7 +75,7 @@ export const cardFavItems = [
     },
     {
         id: 4,
-        name: "Apple iphome 14 pro max (256gb) - Deep Purple",
+        name: "Apple iphome 11 (256gb) - alice blue",
         type: "fav",
         image:iphone,
         isFavorite: true,
@@ -96,7 +96,28 @@ export const cardFavItems = [
     },
     {
         id: 5,
-        name: "Apple iphome 14 pro max (256gb) - Deep Purple",
+        name: "Apple iphome 12 pro max (256gb) - Deep Yellow",
+        type: "fav",
+        image:iphone,
+        isFavorite: true,
+        itemDescription: "With this HP Printer by your side, you can print, scan, and copy all your",
+        rating: 4,
+        availableOn: [
+            {
+                name: "amazon",
+                image:'',
+                redirectLink: "amazon site link",
+            },
+            {
+                name: "amazon",
+                image: "https://",
+                redirectLink: "amazon site link",
+            },
+        ],
+    },
+    {
+        id: 6,
+        name: "Apple iphome 13 pro max (256gb) - Deep green",
         type: "fav",
         image:iphone,
         isFavorite: true,

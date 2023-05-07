@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
  
   return (
     <div
-      className={` m-auto border border-red-600 main-container`}
+      className={` m-auto border main-container`}
     >
       <div className="w-[90%] flex justify-center items-center gap-14 mt-[2.1rem]">
         <div>
