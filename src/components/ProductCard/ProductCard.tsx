@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const ProductCard: React.FC = () => {
   return (
-    <div className="w-[301.93px] h-[459px] border border-[#CDD8DF] rounded px-[15px]">
+    <div className="w-[18.2rem] h-[459px] border border-[#CDD8DF] rounded px-[15px] mt-3 product-card">
       <div className="w-full mt-[18px] flex justify-between ">
         <FaShareAlt />
         <FaHeart color="red" />

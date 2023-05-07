@@ -1,7 +1,5 @@
-"use client";
-
+'use client'
 import React, { useState, ReactNode } from "react";
-
 type TabProps = {
   label: string;
   activeTab?: string;

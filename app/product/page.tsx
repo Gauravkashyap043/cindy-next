@@ -12,7 +12,7 @@ import headphone4 from "../../assets/images/headphone4.png";
 // const imageData: any = [first, second, third, forth];
 const imageData: any = [headphone1, headphone2, headphone3, headphone4];
 
-const page: React.FC = () => {
+const ProductPage: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<any>(imageData[0]);
 
   const handleImageClick = (imageSrc: any) => {
@@ -204,7 +204,7 @@ const page: React.FC = () => {
                     </li>
                     <li>
                       Long battery life: No need to stop the game to recharge
-                      thanks to G435's 18 hours of battery life, allowing you to
+                      thanks to G435s 18 hours of battery life, allowing you to
                       keep playing, talking to friends, and listening to music
                       all day
                     </li>
@@ -331,4 +331,4 @@ const page: React.FC = () => {
   );
 };
 
-export default page;
+export default ProductPage;
