@@ -12,7 +12,7 @@ const FavouriteCard = (props: favouriteCard) => {
   const router = useRouter();
   return (
     <div
-      className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2 relative product-card bg-white"
+      className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2 relative product-card bg-white "
       key={props.item.id}
     >
       <Image
@@ -20,10 +20,10 @@ const FavouriteCard = (props: favouriteCard) => {
         alt=""
         className="absolute h-[29px] w-[29px] left-[188px] top-[11px]"
       />
-      <div className="w-full h-[285px] m-auto border mt-[25px]">
+      <div className="w-full h-[285px] m-auto border mt-[24px]">
         <Image src={props.item.img} alt="product" />
       </div>
-      <div className="w-[94%] m-auto mt-1 h-[48px]">
+      <div className="w-[94%] m-auto h-[48px]">
         <div className="w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
           <div className="flex justify-center items-center gap-2">
             <p>$10.30</p>
