@@ -1,16 +1,18 @@
 import React from 'react';
 interface Props {
   name: string;
+  colorName:string;
 }
-
-const ShopBy: React.FC<Props> = ({ name }) => {
+import { FcNext } from "react-icons/fc";
+const ShopBy: React.FC<Props> = ({ name,colorName }) => {
   return (
-    <div className={`flex items-center my-[40px]`}>
-      <div className=" border rounded-full flex justify-center items-center">
-        <p className="font-[500] text-[20px]">{name}</p>
+    <div className='border border-transparent border-b-gray-300 flex justify-between items-center my-[40px]'>
+      <div className=" border-2 border-transparent text-[#666666] border-b-[#008ECC] flex  items-center pr-2">
+       
+        <p className="font-[500] text-[20px]">{name}  <span className='text-[#008ECC]'>{colorName}</span></p>
       </div>
-      <div className="border flex-1 "></div>
-      <button className="py-[9px] px-[13px] rounded-full text-blue-800 font-bold text-sm border">View all</button>
+      
+      <button className="text-sm text-[16px] font-[400] flex items-center ">View all <span className='text-[#008ECC]'><FcNext/></span></button>
     </div>
   );
 }

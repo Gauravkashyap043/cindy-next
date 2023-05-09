@@ -76,19 +76,33 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      <ShopBy name="SHOP BY CATEGORY" />
+      <ShopBy name="SHOP from " colorName="Favourite"/>
       <div className="w-full ">
         <HorizontalScrollList data={categoryItems} />
       </div>
 
-      <ShopBy name="FAVORITE PRODUCTS" />
+      {/* <ShopBy name="FAVORITE PRODUCTS" /> */}
       {/* <HorizontalScrollList data={cardFavItems} /> */}
-      <div className="w-full">
+      {/* <div className="w-full">
         <HorizontalScrollList data={cardFavItems} />
-      </div>
+      </div> */}
 
-      <ShopBy name="ALL PRODUCTS" />
-      <div className="product-card-div grid grid-cols-4 place-items-center">
+      {/* <ShopBy name="ALL PRODUCTS" /> */}
+      <div className="product-card-div grid grid-cols-7 gap-1">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+
+        <ProductCard />
+        <ProductCard />
         <ProductCard />
         <ProductCard />
         <ProductCard />

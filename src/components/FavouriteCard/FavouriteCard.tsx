@@ -1,7 +1,9 @@
 import React from "react";
 import { FaShareAlt, FaHeart } from "react-icons/fa";
 import iphone from "../../../assets/images/iphone.png";
+import printer from "../../../assets/images/printer.png";
 import Image from "next/image";
+import upload from "../../../assets/images/upload.png";
 import { useRouter } from "next/navigation";
 interface favouriteCard {
   item: any;
@@ -10,38 +12,36 @@ const FavouriteCard = (props: favouriteCard) => {
   const router = useRouter();
   return (
     <div
-      className="w-[262px] h-[488px] border border-[#CDD8DF] rounded px-[15px]"
+      className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2 relative product-card"
       key={props.item.id}
     >
-      <div className="w-full mt-[22px] flex justify-between ">
-        <FaShareAlt />
-        <FaHeart color="red" />
+      <Image
+        src={upload}
+        alt=""
+        className="absolute h-[29px] w-[29px] left-[188px] top-[11px]"
+      />
+      <div className="w-full h-[285px] m-auto border mt-[25px]">
+        <Image src={props.item.img} alt="product" />
       </div>
-      <div className="w-[200px] h-[138px] m-auto mt-[10px] border ">
-        <Image src={props.item.image} alt="" />
+      <div className="w-[94%] m-auto mt-1 h-[48px]">
+        <div className="w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
+          <div className="flex justify-center items-center gap-2">
+            <p>$10.30</p>
+            <div className="border rounded-full px-2 h-[14px] text-[10px] flex justify-center items-center cursor-pointer">
+              ebay
+            </div>
+          </div>
+          <p className="text-[10px]">⭐⭐⭐⭐⭐</p>
+        </div>
+        <div>
+          <p className="text-[15px] text-[#3E4042]">
+            T-shirts with multiple colors...
+          </p>
+        </div>
       </div>
-      <div className="w-full mt-[20px]  text-right">⭐⭐⭐⭐⭐</div>
-      <div
-        className="mt-[10px] font-[500] text-[18px] leading-[20px] cursor-pointer border min-h-[70px]"
-        onClick={() => router.push(`/product/${props.item.id}`)}
-      >
-        <p>{props.item.name}</p>
-      </div>
-      <div>
-        <p className="font-[300px] text-[12px] leading-[14px] text-[#56707A] mt-[15px]">
-          {props.item.itemDescription}
-        </p>
-      </div>
-      <p className="font-[600px] text-[14px] leading-[16px] my-[15px] text-[#FF4646]">
-        Available On
-      </p>
-      <div className="grid grid-cols-3 place-items-center gap-2 ">
-        <div className="rounded-full cursor-pointer w-[66px] h-[21px] border"></div>
-        <div className="rounded-full cursor-pointer w-[66px] h-[21px] border"></div>
-        <div className="rounded-full cursor-pointer w-[66px] h-[21px] border"></div>
-        <div className="rounded-full cursor-pointer w-[66px] h-[21px] border"></div>
-        <div className="rounded-full cursor-pointer w-[66px] h-[21px] border"></div>
-        <div className="rounded-full cursor-pointer w-[66px] h-[21px] border"></div>
+      <div className="flex items-center w-[74px] justify-between m-auto">
+        <FaHeart color="red" size={15} className="" />
+        <p className="text-[#456EFF] text-[13px]">Favourite</p>
       </div>
     </div>
   );
