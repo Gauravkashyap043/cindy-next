@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }: IProps) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} bg-[#f9f9f9]`}>
+      <body className={`${roboto.className} bg-[#efeeee]`}>
         <Provider>
           <Navbar/>
           {children}

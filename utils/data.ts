@@ -4,6 +4,10 @@ import headphone1 from "../assets/images/headphone1.png";
 import headphone2 from "../assets/images/headphone2.png";
 import headphone3 from "../assets/images/headphone3.png";
 import headphone4 from "../assets/images/headphone4.png";
+interface ipillsButtonData {
+    id:number,
+    name:string;
+  }
 export const cardFavItems = [
     {
         id: 1,
@@ -153,4 +157,16 @@ export const categoryItems = [
 ];
 
 export const imageData : any= [headphone1,headphone2,headphone3,headphone4]
+
+export const pillButtonData : ipillsButtonData[] = [
+    {id:1,name:"All"},
+    {id:2,name:"Electronics"},
+    {id:3,name:"Toys"},
+    {id:4,name:"Shoes"},
+    {id:5,name:"Bags"},
+    {id:6,name:"Sports"},
+    {id:7,name:"Clothing"},
+    {id:8,name:"Grooming"},
+    {id:9,name:"Kitchen"},
+]
 

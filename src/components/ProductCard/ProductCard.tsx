@@ -7,7 +7,7 @@ import upload from "../../../assets/images/upload.png"
 
 const ProductCard: React.FC = (props:any) => {
   return (
-    <div className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2 relative product-card">
+    <div className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2 relative product-card bg-white">
       <Image src={upload} alt="" className="absolute h-[29px] w-[29px] left-[188px] top-[11px]"/>
       <div className="w-full h-[285px] m-auto border mt-[25px]">
         <Image src={props.img} alt="product"/>

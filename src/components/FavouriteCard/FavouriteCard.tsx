@@ -12,7 +12,7 @@ const FavouriteCard = (props: favouriteCard) => {
   const router = useRouter();
   return (
     <div
-      className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2 relative product-card"
+      className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2 relative product-card bg-white"
       key={props.item.id}
     >
       <Image

@@ -1,4 +1,4 @@
-
+'use client';
 import React from "react";
 import first from "../assets/images/1.png";
 import second from "../assets/images/2.png";
@@ -16,18 +16,22 @@ import HorizontalScrollList from "@/src/components/HorizontalScrollList/Horizont
 import { cardFavItems, categoryItems } from "@/utils/data";
 import FavouriteCard from "@/src/components/FavouriteCard/FavouriteCard";
 import ProductCard from "@/src/components/ProductCard/ProductCard";
+import { TabContent, Tabs } from "@/src/components/HomeTabs/Tabs";
+import { pillButtonData } from "@/utils/data";
+
+interface ipillsButtonData {
+  id:number,
+  name:string;
+}
 
 const HomePage: React.FC = () => {
- 
   return (
-    <div
-      className={` m-auto border main-container`}
-    >
+    <div className={` m-auto border main-container`}>
       <div className="w-[90%] flex justify-center items-center gap-14 mt-[2.1rem]">
         <div>
           <p className="text-[13px] font-[600] text-[#3F3F3F] leading-[14px]">
             <span className="text-green-600">Free fast delivery</span> on order
-            over $20 
+            over $20
           </p>
         </div>
         <div>
@@ -47,8 +51,10 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="w-full  flex flex-row min-[753px]:flex-col
-       justify-between h-[250px] mt-[1.2rem]">
+      <div
+        className="w-full  flex flex-row min-[753px]:flex-col
+       justify-between h-[250px] mt-[1.2rem]"
+      >
         <div className="h-full w-[49.5%] rounded ">
           <Image src={electronics} alt="img" className="w-full h-full" />
         </div>
@@ -76,40 +82,54 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      <ShopBy name="SHOP from " colorName="Favourite"/>
-      <div className="w-full ">
+      <ShopBy name="SHOP from " colorName="Favourite" />
+      {/* <div className="w-full ">
         <HorizontalScrollList data={categoryItems} />
-      </div>
+      </div> */}
 
       {/* <ShopBy name="FAVORITE PRODUCTS" /> */}
       {/* <HorizontalScrollList data={cardFavItems} /> */}
-      {/* <div className="w-full">
+      <div className="w-full">
         <HorizontalScrollList data={cardFavItems} />
-      </div> */}
-
-      {/* <ShopBy name="ALL PRODUCTS" /> */}
-      <div className="product-card-div grid grid-cols-7 gap-1">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
       </div>
-      <div className="w-full border h-[143px]">
-        <div></div>
+
+      <Tabs>
+        <TabContent label="Explore Our" colorLabel="Collection">
+          <div className="h-[48px] border w-full flex justify-between text-[16px] mb-[50px] text-[#222222] cursor-pointer">
+            {pillButtonData.map((items : any) => {
+              return (
+                <div className="w-[182px] h-full rounded-full border flex justify-center items-center bg-white" key={items.id} onClick={() => console.log(items.name)}>{items.name}</div>
+              )
+            })}
+            
+          </div>
+          <div className="product-card-div grid grid-cols-7 gap-1">
+            <ProductCard />
+          </div>
+        </TabContent>
+          <TabContent label="Explore our" colorLabel="Giftable">
+          <div className="product-card-div grid grid-cols-7 gap-1">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </div>
+        </TabContent>
+        <TabContent label="Explore our desi" colorLabel="Collection">
+          <div className="product-card-div grid grid-cols-7 gap-1">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+
+          </div>
+        </TabContent>
+      </Tabs>
+
+      <div className="w-full border  h-[136px] mt-[30px]">
+        <p className="text-[#868686] text-center">You have viewed 72 of 1000 products</p>
+        <div className="w-full">
+          <button className="h-[60px] bg-white text-[#575757] w-full mt-[50px]">Load More</button>
+        </div>
       </div>
     </div>
   );
