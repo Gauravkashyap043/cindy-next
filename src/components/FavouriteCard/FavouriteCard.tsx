@@ -15,11 +15,11 @@ const FavouriteCard = (props: favouriteCard) => {
       className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2  product-card bg-white "
       key={props.item.id}
     >
-      {/* <Image
+      <Image
         src={upload}
         alt=""
         className="absolute h-[29px] w-[29px] left-[188px] top-[11px]"
-      /> */}
+      />
       <div className="w-[232px] h-[285px] m-auto border mt-[24px]">
         <img src={props.item.image} alt="product" className="w-full h-full" />
       </div>
