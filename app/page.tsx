@@ -18,7 +18,6 @@ import FavouriteCard from "@/src/components/FavouriteCard/FavouriteCard";
 import ProductCard from "@/src/components/ProductCard/ProductCard";
 import { TabContent, Tabs } from "@/src/components/HomeTabs/Tabs";
 import { pillButtonData } from "@/utils/data";
-import { getAllProductData } from "@/utils/productData";
 import { GetStaticProps } from "next";
 import useSWR from "swr";
 import axios from "axios";

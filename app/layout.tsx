@@ -1,8 +1,6 @@
-import { Roboto } from 'next/font/google'
-const roboto = Roboto({
-  weight: '400',
-  subsets: ['latin'],
-})
+import { Inter } from 'next/font/google';
+const inter = Inter({ subsets: ['latin'] });
+
 import "../src/styles/globals.css";
 import { ReactNode } from "react";
 import Navbar from "@/src/components/Navbar/Navbar";
@@ -18,12 +16,12 @@ export const metadata = {
 export default function RootLayout({ children }: IProps) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} bg-[#efeeee]`}>
+      <body className={`${inter.className} bg-[#efeeee]`}>
         <Provider>
           <Navbar/>
           {children}
         </Provider>
-      </body>
+      </body>yan
     </html>
   );
 }
