@@ -1,5 +1,5 @@
 'use client';
-import React from "react";
+import React, { useState } from "react";
 import first from "../assets/images/1.png";
 import second from "../assets/images/2.png";
 import third from "../assets/images/3.png";
@@ -18,13 +18,32 @@ import FavouriteCard from "@/src/components/FavouriteCard/FavouriteCard";
 import ProductCard from "@/src/components/ProductCard/ProductCard";
 import { TabContent, Tabs } from "@/src/components/HomeTabs/Tabs";
 import { pillButtonData } from "@/utils/data";
+import { getAllProductData } from "@/utils/productData";
+import { GetStaticProps } from "next";
+import useSWR from "swr";
+import axios from "axios";
+// interface Product {
+//   id: number;
+//   title: string;
+//   price: number;
+//   description: string;
+//   category: string;
+//   image: string;
+// }
 
-interface ipillsButtonData {
-  id:number,
-  name:string;
-}
+const fetcher = async (url: string) => {
+  const response = await axios.get(url);
+  return response.data;
+};
 
-const HomePage: React.FC = () => {
+export default function HomePage() {
+
+
+  const { data, error } = useSWR<Product[]>("https://fakestoreapi.com/products", fetcher);
+
+  if (error) return <p>Loading failed...</p>;
+  if (!data) return <h1>Loading...</h1>;
+
   return (
     <div className={` m-auto border main-container`}>
       <div className="w-[90%] flex justify-center items-center gap-14 mt-[2.1rem]">
@@ -90,49 +109,57 @@ const HomePage: React.FC = () => {
       {/* <ShopBy name="FAVORITE PRODUCTS" /> */}
       {/* <HorizontalScrollList data={cardFavItems} /> */}
       <div className="w-full">
-        <HorizontalScrollList data={cardFavItems} />
+        <HorizontalScrollList data={data} />
       </div>
 
       <Tabs>
         <TabContent label="Explore Our" colorLabel="Collection">
           <div className="h-[48px] border w-full flex justify-between text-[16px] mb-[50px] text-[#222222] cursor-pointer">
-            {pillButtonData.map((items : any) => {
+            {pillButtonData.map((items: any) => {
               return (
-                <div className="w-[182px] h-full rounded-full border flex justify-center items-center bg-white" key={items.id} onClick={() => console.log(items.name)}>{items.name}</div>
-              )
+                <div
+                  className="w-[182px] h-full rounded-full border flex justify-center items-center bg-white"
+                  key={items.id}
+                >
+                  {items.name}
+                </div>
+              );
             })}
-            
           </div>
           <div className="product-card-div grid grid-cols-7 gap-1">
-            <ProductCard />
+            
+          {data.map((product: Product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
           </div>
         </TabContent>
-          <TabContent label="Explore our" colorLabel="Giftable">
+        <TabContent label="Explore our" colorLabel="Giftable">
           <div className="product-card-div grid grid-cols-7 gap-1">
+            {/* <ProductCard />
             <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            <ProductCard /> */}
           </div>
         </TabContent>
         <TabContent label="Explore our desi" colorLabel="Collection">
           <div className="product-card-div grid grid-cols-7 gap-1">
+            {/* <ProductCard />
             <ProductCard />
             <ProductCard />
-            <ProductCard />
-            <ProductCard />
-
+            <ProductCard /> */}
           </div>
         </TabContent>
       </Tabs>
 
       <div className="w-full border  h-[136px] mt-[30px]">
-        <p className="text-[#868686] text-center">You have viewed 72 of 1000 products</p>
+        <p className="text-[#868686] text-center">
+          You have viewed 72 of 1000 products
+        </p>
         <div className="w-full">
-          <button className="h-[60px] bg-white text-[#575757] w-full mt-[50px]">Load More</button>
+          <button className="h-[60px] bg-white text-[#575757] w-full mt-[50px]">
+            Load More
+          </button>
         </div>
       </div>
     </div>
   );
-};
-
-export default HomePage;
+}

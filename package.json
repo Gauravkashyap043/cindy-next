@@ -15,6 +15,7 @@
     "@types/node": "18.16.3",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
+    "axios": "^1.4.0",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
     "next": "13.3.4",
@@ -24,6 +25,7 @@
     "react-geolocated": "^4.0.3",
     "react-icons": "^4.8.0",
     "sass": "^1.62.1",
+    "swr": "^2.1.5",
     "typescript": "5.0.4"
   },
   "devDependencies": {

@@ -61,7 +61,8 @@ const Navbar: React.FC = (): JSX.Element => {
               //   alt=""
               //   className="w-[45px] h-[45px] rounded-full cursor-pointer border"
               // />
-              <div className=" cursor-pointer border">
+              <div className=" cursor-pointer border text-center">
+                Welocome, <br />
                 {!!session && session?.user?.name}
               </div>
             )}
