@@ -12,7 +12,7 @@ const FavouriteCard = (props: favouriteCard) => {
   const truncatedTitle = props.item.title.length > 15 ? props.item.title.substring(0, 15) + "..." : props.item.title;
   return (
     <div
-      className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2  product-card bg-white "
+      className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2  product-card bg-white relative "
       key={props.item.id}
     >
       <Image

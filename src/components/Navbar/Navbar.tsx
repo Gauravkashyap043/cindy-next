@@ -12,35 +12,35 @@ import logo from "../../../assets/images/logo.png";
 const Navbar: React.FC = (): JSX.Element => {
   const { data: session } = useSession();
   const [showLogin, setShowLogin] = useState(false);
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   // const callbackUrl: string | null = searchParams.get('callbackUrl');
   console.log(session);
 
   return (
     <nav className="w-full  m-auto bg-white">
       <div className="w-[90%] h-[120px] m-auto flex justify-between items-center bg-white main-container">
-        <div className="w-[73px] h-[73px] max-[474px]:w-[65px] max-[440]:w-[55px]">
+        <div className="logo_div w-[73px] h-[73px] max-[474px]:w-[65px] max-[440]:w-[55px]">
           <Image src={logo} alt="this is logo" className="cursor-pointer" />
         </div>
-        <div className="navbar-div w-[665px] h-[40px] border border-[#0039f0] flex rounded">
+        <div className="search_div w-[665px] h-[40px] border border-[#0039f0] flex rounded">
           <input
             type="search"
-            className="flex-1 outline-none h-full px-2 bg-transparent"
+            className="input_search flex-1 outline-none h-full px-2 bg-transparent"
             placeholder="Search"
           />
-          <div className="w-[145px] h-full  border border-blue-600">
-            <select className=" text-[14px] w-full h-full outline-none cursor-pointer">
+          <div className="search_select w-[145px] h-full  border border-blue-600">
+            <select className="search_option text-[14px] w-full h-full outline-none cursor-pointer">
               <option value="">All Category</option>
             </select>
           </div>
-          <button className="w-[100px] h-full  text-white border border-blue-700 bg-[#0039f0]">
+          <button className="search_btn w-[100px] h-full  text-white border border-blue-700 bg-[#0039f0]">
             Search
           </button>
         </div>
         <div className="flex items-center gap-3 ">
           <div className="cursor-pointer">
             <FaHeart color="#8B96A5" size={18} className="cursor-pointer m-auto" />
-            <p className="text-[12px] text-[#8B96A5] mt-1 font-[400]">Favourite</p>
+            <p className="icon_text text-[12px] text-[#8B96A5] mt-1 font-[400]">Favourite</p>
           </div>
           <div
             className="relative rounded-full flex justify-center items-center"
@@ -53,7 +53,7 @@ const Navbar: React.FC = (): JSX.Element => {
                   size={18}
                   className="cursor-pointer m-auto"
                 />
-                <p className="text-[12px] text-[#8B96A5] mt-1 font-[400]">Profile</p>
+                <p className="icon_text text-[12px] text-[#8B96A5] mt-1 font-[400]">Profile</p>
               </div>
             ) : (
               // <Image

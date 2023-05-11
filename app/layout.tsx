@@ -21,7 +21,7 @@ export default function RootLayout({ children }: IProps) {
           <Navbar/>
           {children}
         </Provider>
-      </body>yan
+      </body>
     </html>
   );
 }
