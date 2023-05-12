@@ -10,21 +10,22 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const truncatedTitle =
-    product.title.length > 15
-      ? product.title.substring(0, 15) + "..."
+    product.title.length > 25
+      ? product.title.substring(0, 25) + "..."
       : product.title;
 
   return (
-    <div className="w-[232px] h-[383px] border border-[#CDD8DF] mt-2 relative bg-white rounded">
+    <div className="product-card-container border border-[#CDD8DF]  relative bg-white rounded">
       <Image
         src={upload}
         alt=""
-        className="absolute h-[29px] w-[29px] left-[188px] top-[11px]"
+        className="absolute h-[29px] w-[29px] right-[15px] top-[11px] cursor-pointer"
+        onClick={() => alert("click on product card")}
       />
-      <div className="w-[232px] h-[285px] m-auto border mt-[24px]">
+      <div className="product-card-img w-[14.5rem] h-[285px] m-auto mt-[20px]">
         <img src={product.image} alt="" className="h-full w-full" />
       </div>
-      <div className="w-[94%] m-auto h-[48px]">
+      <div className="w-[94%] m-auto h-[48px] mt-[7px]">
         <div className="w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
           <div className="flex justify-center items-center gap-2">
             <p>${product.price}</p>

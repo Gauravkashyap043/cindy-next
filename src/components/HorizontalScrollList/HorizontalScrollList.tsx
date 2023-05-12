@@ -33,7 +33,7 @@ const HorizontalScrollList = (props: horizontalScrollList) => {
     //   case "fav":
     //     return <FavouriteCard item={item} />;
     // }
-    if(item.type === "category") {
+    if (item.type === "category") {
       return <CategoryCard item={item} />;
     } else {
       return <FavouriteCard item={item} />;
@@ -44,8 +44,11 @@ const HorizontalScrollList = (props: horizontalScrollList) => {
     <div className="w-full m-auto overflow-x-hidden relative">
       {props.data && props.data.length && (
         <>
-          <div className="flex m-auto overflow-hidden w-[94%] gap-3" ref={containerRef}>
-            {props.data.map((item: any) => renderCards(item))}
+          <div
+            className="flex m-auto overflow-auto scroll-smooth w-[94%]"
+            ref={containerRef}
+          >
+            <div className="w-full flex gap-3">{props.data.map((item: any) => renderCards(item))}</div>
           </div>
           <div>
             {/* <FaChevronLeft
@@ -59,7 +62,7 @@ const HorizontalScrollList = (props: horizontalScrollList) => {
               className="w-[45px] absolute top-[40%] cursor-pointer"
               onClick={handleScrollLeft}
             />
-           <Image
+            <Image
               src={next}
               alt=""
               className="w-[45px] absolute top-[40%] right-0 cursor-pointer"

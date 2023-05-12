@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { FaShareAlt, FaHeart } from "react-icons/fa";
 import iphone from "../../../assets/images/iphone.png";
@@ -18,12 +19,13 @@ const FavouriteCard = (props: favouriteCard) => {
       <Image
         src={upload}
         alt=""
-        className="absolute h-[29px] w-[29px] left-[188px] top-[11px]"
+        className="absolute h-[29px] w-[29px] right-[13px] top-[11px] cursor-pointer"
+        onClick={() => alert("click on share of favorite card")}
       />
-      <div className="w-[232px] h-[285px] m-auto border mt-[24px]">
+      <div className="w-[230px] h-[285px] m-auto mt-[20px]">
         <img src={props.item.image} alt="product" className="w-full h-full" />
       </div>
-      <div className="w-[94%] m-auto h-[48px]">
+      <div className="w-[94%] m-auto h-[48px] mt-[7px]">
         <div className="w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
           <div className="flex justify-center items-center gap-2">
             <p>${props.item.price}</p>

@@ -46,7 +46,7 @@ export default function HomePage() {
 
   return (
     <div className={` m-auto border main-container`}>
-      <div className="order_div w-[90%] flex justify-center items-center gap-14 mt-[2.1rem] border border-black m-auto">
+      {/* <div className="order_div w-[90%] flex justify-center items-center gap-14 mt-[2.1rem] border border-black m-auto">
         <div className="border">
           <p className="order_text text-[13px] font-[600] text-[#3F3F3F] leading-[14px]">
             <span className="text-green-600">Free fast delivery</span> on order
@@ -69,8 +69,8 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-      </div>
-      <div
+      </div> */}
+      {/* <div
         className="w-full  flex
        justify-between h-[250px] mt-[1.2rem]"
       >
@@ -80,9 +80,9 @@ export default function HomePage() {
         <div className="h-full w-[49.5%] rounded ">
           <Image src={sale} alt="img" className="w-full h-full" />
         </div>
-      </div>
+      </div> */}
 
-      <div className="w-full flex justify-between h-[120px] mt-[1%]">
+      {/* <div className="w-full flex justify-between h-[120px] mt-[1%]">
         <div className="h-full w-[49.5%] rounded flex justify-between">
           <div className="h-full w-[49%] rounded">
             <Image src={first} alt="img" className="w-full h-full" />
@@ -99,7 +99,7 @@ export default function HomePage() {
             <Image src={forth} alt="img" className="w-full h-full" />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <ShopBy name="SHOP from " colorName="Favourite" />
       {/* <div className="w-full ">
@@ -114,7 +114,7 @@ export default function HomePage() {
 
       <Tabs>
         <TabContent label="Explore Our" colorLabel="Collection">
-          <div className="border border-red-600 overflow-auto">
+          <div className="overflow-auto">
             <div className="h-[48px] min-w-[1465px] border w-full flex justify-between text-[16px] mb-[50px] text-[#222222] cursor-pointer overflow-hidden">
               {pillButtonData.map((items: any) => {
                 return (
@@ -128,21 +128,21 @@ export default function HomePage() {
               })}
             </div>
           </div>
-          <div className="product-card-div grid grid-cols-7 gap-1">
+          <div className="product-card-div">
             {data.map((product: Product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </TabContent>
         <TabContent label="Explore our" colorLabel="Giftable">
-          <div className="product-card-div grid grid-cols-7 gap-1">
+          <div className="product-card-div min-h-[500px]">
             {/* <ProductCard />
             <ProductCard />
             <ProductCard /> */}
           </div>
         </TabContent>
         <TabContent label="Explore our desi" colorLabel="Collection">
-          <div className="product-card-div grid grid-cols-7 gap-1">
+          <div className="product-card-div min-h-[500px]">
             {/* <ProductCard />
             <ProductCard />
             <ProductCard />

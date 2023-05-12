@@ -18,7 +18,7 @@ const Navbar: React.FC = (): JSX.Element => {
 
   return (
     <nav className="w-full  m-auto bg-white">
-      <div className="w-[90%] h-[120px] m-auto flex justify-between items-center bg-white main-container">
+      <div className="navbar w-[90%] h-[120px] m-auto flex justify-between items-center bg-white main-container">
         <div className="logo_div w-[73px] h-[73px] max-[474px]:w-[65px] max-[440]:w-[55px]">
           <Image src={logo} alt="this is logo" className="cursor-pointer" />
         </div>
@@ -29,7 +29,7 @@ const Navbar: React.FC = (): JSX.Element => {
             placeholder="Search"
           />
           <div className="search_select w-[145px] h-full  border border-blue-600">
-            <select className="search_option text-[14px] w-full h-full outline-none cursor-pointer">
+            <select className="search_option text-[14px] w-full h-full outline-none cursor-pointer bg-transparent flex justify-center items-center">
               <option value="">All Category</option>
             </select>
           </div>

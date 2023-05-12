@@ -41,38 +41,135 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   place-items: center;
+  gap:15px 10px;
+  
 }
-@media (max-width: 1720px) {
-  .grid {
+.product-card-container {
+  width: auto;
+  height: auto;
+}
+@media (max-width: 1757px) {
+  .product-card-div{
     grid-template-columns: repeat(6, 1fr);
   }
-}
-@media (max-width: 1430px) {
-  .grid {
-    grid-template-columns: repeat(5, 1fr);
+  .product-card-container {
+    width: 16rem;
   }
 }
-@media (max-width: 1260px) {
-  .grid {
+@media (max-width: 1623px) {
+  .product-card-container {
+    width: 15.5rem;
+  }
+}
+@media (max-width: 1575px) {
+  .product-card-container {
+    width: 14.6rem;
+  }
+}
+@media (max-width: 1504px) {
+  .product-card-div{
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .product-card-container {
+    width: 17rem;
+  }
+}
+@media (max-width: 1437px) {
+  .product-card-container {
+    width: 16rem;
+  }
+}
+@media (max-width: 1342px) {
+  .product-card-div{
     grid-template-columns: repeat(4, 1fr);
+  }
+  .product-card-container {
+    width: 18rem;
+  }
+}
+@media (max-width: 1245px) {
+  .product-card-container {
+    width: 17rem;
+  }
+}
+@media (max-width: 1138px) {
+  .product-card-container {
+    width: 16rem;
+  }
+}
+@media (max-width: 1080px) {
+  .product-card-container {
+    width: 15rem;
+  }
+}
+@media (max-width: 1009px) {
+  .product-card-container {
+    width: 14.5rem;
   }
 }
 
-@media (max-width: 960px) {
-  .grid {
+@media (max-width: 1019px) {
+  .product-card-div{
     grid-template-columns: repeat(3, 1fr);
+  }
+  .product-card-container {
+    width: 18rem;
+  }
+}
+@media (max-width: 912px) {
+  .product-card-container {
+    width: 17rem;
+  }
+}
+@media (max-width: 859px) {
+  .product-card-container {
+    width: 16rem;
+  }
+}
+@media (max-width: 804px) {
+  .product-card-container {
+    width: 15rem;
+  }
+}
+@media (max-width: 758px) {
+  .product-card-container {
+    width: 14.6rem;
   }
 }
 
 @media (max-width: 735px) {
-  .grid {
+  .product-card-div{
     grid-template-columns: repeat(2, 1fr);
   }
+  .product-card-container {
+    width: 18rem;
+  }
 }
-@media (max-width: 626px) {
-  .grid {
+@media (max-width: 608px) {
+  .product-card-container {
+    width: 17rem;
+  }
+}
+@media (max-width: 578px) {
+  .product-card-container {
+    width: 16rem;
+  }
+}
+@media (max-width: 538px) {
+  .product-card-container {
+    width: 15rem;
+  }
+}
+@media (max-width: 524px) {
+  .product-card-div{
     grid-template-columns: repeat(1, 1fr);
   }
+  .product-card-container {
+    width: 18rem;
+  }
+}
+@media (max-width: 420px){
+  
 }
 
 
@@ -80,6 +177,7 @@
 
 .main-container {
   width: 97%; 
+  padding: 0 1rem;
 }
 
 @media (max-width: 1695px) {
@@ -155,7 +253,7 @@
       font-size: 11px;
      }
    }
-   @media (max-width: 613px) {
+   @media (max-width: 640px) {
      .search_div {
          width: 350px;
          height: 30px;
@@ -172,6 +270,7 @@
      }
      .logo_div {
          width: 55px;
+         height: 55px;
      }
      .order_text {
       font-size: 10px;
@@ -181,7 +280,10 @@
       gap: 1rem;
      }
    }
-   @media (max-width: 533px) {
+   @media (max-width: 573px) {
+    .navbar {
+      height: 100px;
+    }
      .search_div {
          width: 270px;
          height: 30px;
@@ -199,7 +301,8 @@
 
      }
      .logo_div {
-         width: 50px;
+         width: 45px;
+         height: 45px;
      }
      .input_search {
          flex: 0%;
@@ -215,6 +318,51 @@
      .order_div {
       width: 100%;
      }
+   }
+   @media (max-width: 414px) {
+    .navbar {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5px;
+    }
+    .search_div {
+      width: 241px;
+      height: 24px;
+  }
+  .search_select {
+      width: 77px;
+      outline: none;
+
+  }
+  .search_option {
+      font-size: 9px;
+  }
+  .search_btn {
+      font-size: 9px;
+      width:49px;
+
+  }
+  .logo_div {
+      width: 35px;
+      height: 35px;
+  }
+  .input_search {
+      flex: 0%;
+      width: 115px;
+      font-size: 10px;
+  }
+  .icon_text {
+   display:none;
+  }
+  .order_text {
+   font-size: 9px;
+  }
+  .order_div {
+   width: 100%;
+  }
    }
 
 
