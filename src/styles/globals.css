@@ -74,10 +74,21 @@
     width: 17rem;
   }
 }
+
+@media (max-width: 1475px) {
+ 
+  .pills-btn {
+    width: 150px;
+  }
+}
 @media (max-width: 1437px) {
   .product-card-container {
     width: 16rem;
   }
+  .pills-btn {
+    width: 145px;
+  }
+  
 }
 @media (max-width: 1342px) {
   .product-card-div{
@@ -162,14 +173,71 @@
 }
 @media (max-width: 524px) {
   .product-card-div{
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .product-card-container {
-    width: 18rem;
+    width: 12.5rem;
   }
+  .product-card-img {
+    width: 9rem;
+    height: 9rem;
+  }
+  .price-cont {
+    font-size: 11px;
+  }
+  .product-name {
+    font-size: 12px;
+  }
+
 }
-@media (max-width: 420px){
+@media (max-width: 448px){
+  .product-card-container {
+    width: 11.5rem;
+  }
+  .product-card-img {
+    width: 9rem;
+    height: 9rem;
+  }
+  .price-cont {
+    font-size: 11px;
+  }
+  .product-name {
+    font-size: 12px;
+  }
+ 
+}
+@media (max-width: 414px){
+  .product-card-container {
+    width: 10.5rem;
+  }
+  .product-card-img {
+    width: 9rem;
+    height: 9rem;
+  }
+  .price-cont {
+    font-size: 11px;
+  }
+  .product-name {
+    font-size: 12px;
+  }
+ 
+}
+@media (max-width: 384px){
   
+  .product-card-container {
+    width: 9rem;
+  }
+  .product-card-img {
+    width: 7rem;
+    height: 7rem;
+  }
+  .price-cont {
+    font-size: 11px;
+  }
+  .product-name {
+    font-size: 12px;
+  }
+ 
 }
 
 

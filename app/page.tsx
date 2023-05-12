@@ -119,7 +119,7 @@ export default function HomePage() {
               {pillButtonData.map((items: any) => {
                 return (
                   <div
-                    className="w-[182px] h-full rounded-full border flex justify-center items-center bg-white"
+                    className="pills-btn w-[182px] h-full rounded-full border flex justify-center items-center bg-white"
                     key={items.id}
                   >
                     {items.name}

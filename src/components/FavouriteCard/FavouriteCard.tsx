@@ -13,7 +13,7 @@ const FavouriteCard = (props: favouriteCard) => {
   const truncatedTitle = props.item.title.length > 15 ? props.item.title.substring(0, 15) + "..." : props.item.title;
   return (
     <div
-      className="w-[232px] h-[383px] border border-[#CDD8DF] rounded mt-2  product-card bg-white relative "
+      className=" product-card-container border border-[#CDD8DF]  relative bg-white rounded "
       key={props.item.id}
     >
       <Image
@@ -22,11 +22,11 @@ const FavouriteCard = (props: favouriteCard) => {
         className="absolute h-[29px] w-[29px] right-[13px] top-[11px] cursor-pointer"
         onClick={() => alert("click on share of favorite card")}
       />
-      <div className="w-[230px] h-[285px] m-auto mt-[20px]">
+      <div className="product-card-img w-[14.5rem] h-[285px] m-auto mt-[20px]">
         <img src={props.item.image} alt="product" className="w-full h-full" />
       </div>
       <div className="w-[94%] m-auto h-[48px] mt-[7px]">
-        <div className="w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
+        <div className="price-cont w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
           <div className="flex justify-center items-center gap-2">
             <p>${props.item.price}</p>
             <div className="border rounded-full px-2 h-[14px] text-[10px] flex justify-center items-center cursor-pointer">
@@ -36,7 +36,7 @@ const FavouriteCard = (props: favouriteCard) => {
           <p className="text-[10px]">⭐⭐⭐⭐⭐</p>
         </div>
         <div>
-          <p className="text-[15px] text-[#3E4042]">
+          <p className="product-name text-[15px] text-[#3E4042]">
             {truncatedTitle}
           </p>
         </div>
