@@ -45,7 +45,7 @@ const HorizontalScrollList = (props: horizontalScrollList) => {
       {props.data && props.data.length && (
         <>
           <div
-            className="flex m-auto overflow-auto scroll-smooth w-[94%]"
+            className="horizontal-scrollist flex m-auto overflow-auto scroll-smooth w-[96%] mr-1"
             ref={containerRef}
           >
             <div className="w-full flex gap-3">{props.data.map((item: any) => renderCards(item))}</div>
@@ -56,21 +56,22 @@ const HorizontalScrollList = (props: horizontalScrollList) => {
               onClick={handleScrollLeft}
               color="black"
             /> */}
-            <Image
+            
+          </div>
+        </>
+      )}
+      <Image
               src={prev}
               alt=""
-              className="w-[45px] absolute top-[40%] cursor-pointer"
+              className="prev w-[86px] h-[86px] absolute top-[40%] cursor-pointer  "
               onClick={handleScrollLeft}
             />
             <Image
               src={next}
               alt=""
-              className="w-[45px] absolute top-[40%] right-0 cursor-pointer"
+              className="next w-[86px] h-[86px] absolute top-[40%] right-0 cursor-pointer"
               onClick={handleScrollRight}
             />
-          </div>
-        </>
-      )}
     </div>
   );
 };

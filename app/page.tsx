@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import first from "../assets/images/1.png";
 import second from "../assets/images/2.png";
 import third from "../assets/images/3.png";
@@ -36,6 +36,7 @@ const fetcher = async (url: string) => {
 };
 
 export default function HomePage() {
+  const [pillActive, setPillActive] = useState([pillButtonData[0].id]);
   const { data, error } = useSWR<Product[]>(
     "https://fakestoreapi.com/products",
     fetcher
@@ -43,6 +44,7 @@ export default function HomePage() {
 
   if (error) return <p>Loading failed...</p>;
   if (!data) return <h1>Loading...</h1>;
+
 
   return (
     <div className={` m-auto border main-container`}>
@@ -116,16 +118,20 @@ export default function HomePage() {
         <TabContent label="Explore Our" colorLabel="Collection">
           <div className="overflow-auto">
             <div className="h-[48px] min-w-[1465px] border w-full flex justify-between text-[16px] mb-[50px] text-[#222222] cursor-pointer overflow-hidden">
-              {pillButtonData.map((items: any) => {
-                return (
-                  <div
-                    className="pills-btn w-[182px] h-full rounded-full border flex justify-center items-center bg-white"
-                    key={items.id}
-                  >
-                    {items.name}
-                  </div>
-                );
-              })}
+            {pillButtonData.map((items: any) => {
+          return (
+            <div
+              className={`pills-btn w-[182px] h-full rounded-full border flex justify-center items-center ${pillActive == items.id ?"bg-black text-white" : "bg-white text-black" } `}
+              // className="pills-btn w-[182px] h-full rounded-full border flex justify-center items-center bg-white"
+              key={items.id}
+              onClick={() => {
+                setPillActive(items.id);
+              }}
+            >
+              {items.name}
+            </div>
+          );
+        })}
             </div>
           </div>
           <div className="product-card-div">

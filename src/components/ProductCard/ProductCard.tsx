@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FaFileUpload, FaHeart, FaShareAlt } from "react-icons/fa";
 import printer from "../../../assets/images/printer.png";
 import Image from "next/image";
@@ -9,9 +9,11 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const windowSize = useRef([window.innerWidth, window.innerHeight]);
+
   const truncatedTitle =
     product.title.length > 25
-      ? product.title.substring(0, 25) + "..."
+      ? product.title.substring(0,windowSize.current[0] < 472 ? 20 : 15) + "..."
       : product.title;
 
   return (
@@ -22,7 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="absolute h-[29px] w-[29px] right-[15px] top-[11px] cursor-pointer"
         onClick={() => alert("click on product card")}
       />
-      <div className="product-card-img w-[14.5rem] h-[285px] m-auto mt-[20px]">
+      <div className="product-card-img w-[14rem] h-[285px] m-auto mt-[20px]">
         <img src={product.image} alt="" className="h-full w-full" />
       </div>
       <div className="w-[94%] m-auto  mt-[7px]">
@@ -36,7 +38,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <p className="text-[10px]">⭐⭐⭐⭐⭐</p>
         </div>
         <div>
-          <p className="product-name text-[15px] text-[#3E4042]">{truncatedTitle}</p>
+          <p className="product-name text-[15px] text-[#3E4042]">
+            {truncatedTitle}
+          </p>
         </div>
       </div>
       <div className="flex items-center w-[74px] justify-between m-auto">
