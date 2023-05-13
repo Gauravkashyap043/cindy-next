@@ -160,10 +160,10 @@ export const imageData : any= [headphone1,headphone2,headphone3,headphone4]
 
 export const pillButtonData : ipillsButtonData[] = [
     {id:1,name:"All"},
-    {id:2,name:"Electronics"},
-    {id:3,name:"Toys"},
-    {id:4,name:"Shoes"},
-    {id:5,name:"Bags"},
+    {id:2,name:"electronics"},
+    {id:3,name:"jewelery"},
+    {id:4,name:"men's clothing"},
+    {id:5,name:"women's clothing"},
     {id:6,name:"Sports"},
     {id:7,name:"Clothing"},
     {id:8,name:"Grooming"},

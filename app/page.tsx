@@ -36,7 +36,8 @@ const fetcher = async (url: string) => {
 };
 
 export default function HomePage() {
-  const [pillActive, setPillActive] = useState([pillButtonData[0].id]);
+  const [pillActive, setPillActive] = useState<number>(pillButtonData[0].id);
+  const [pillCategory,setPillCategory] = useState<string>("")
   const { data, error } = useSWR<Product[]>(
     "https://fakestoreapi.com/products",
     fetcher
@@ -45,6 +46,15 @@ export default function HomePage() {
   if (error) return <p>Loading failed...</p>;
   if (!data) return <h1>Loading...</h1>;
 
+  const filteredProducts = data.filter((product: Product) => {
+    // Check if the pill button is active and the product category matches
+    if (pillActive == 1 ||pillCategory === "All") {
+      return true; // Show all products
+    } else {
+      return product.category === pillCategory;
+    }
+  });
+ 
 
   return (
     <div className={` m-auto border main-container`}>
@@ -117,27 +127,30 @@ export default function HomePage() {
       <Tabs>
         <TabContent label="Explore Our" colorLabel="Collection">
           <div className="overflow-auto">
-            <div className="h-[48px] min-w-[1465px] border w-full flex justify-between text-[16px] mb-[50px] text-[#222222] cursor-pointer overflow-hidden">
-            {pillButtonData.map((items: any) => {
-          return (
-            <div
-              className={`pills-btn w-[182px] h-full rounded-full border flex justify-center items-center ${pillActive == items.id ?"bg-black text-white" : "bg-white text-black" } `}
-              // className="pills-btn w-[182px] h-full rounded-full border flex justify-center items-center bg-white"
-              key={items.id}
-              onClick={() => {
-                setPillActive(items.id);
-              }}
-            >
-              {items.name}
+          <div className="h-[48px] pill-btn-div min-w-[1465px] w-full flex justify-between text-[16px] mb-[50px] text-[#222222] cursor-pointer overflow-hidden">
+              {pillButtonData.map((items: any) => {
+                return (
+                  <div
+                    className={`pills-btn transition ease-in-out w-[170px] h-full rounded-full border flex justify-center items-center ${
+                      pillActive == items.id
+                        ? "bg-[#008ECC] text-white"
+                        : "bg-white text-black"
+                    } `}
+                    key={items.id}
+                    onClick={() => {
+                      (setPillActive(items.id),setPillCategory(items.name));
+                    }}
+                  >
+                    {items.name}
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
+            <div className="product-card-div">
+              {filteredProducts.map((product: Product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
             </div>
-          </div>
-          <div className="product-card-div">
-            {data.map((product: Product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
           </div>
         </TabContent>
         <TabContent label="Explore our" colorLabel="Giftable">

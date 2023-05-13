@@ -1,15 +1,15 @@
 'use client';
-import React from "react";
-import { FaShareAlt, FaHeart } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaShareAlt, FaHeart,FaRegHeart } from "react-icons/fa";
 import iphone from "../../../assets/images/iphone.png";
 import printer from "../../../assets/images/printer.png";
 import Image from "next/image";
 import upload from "../../../assets/images/upload.png";
-import { useRouter } from "next/navigation";
 interface favouriteCard {
   item: any;
 }
 const FavouriteCard = (props: favouriteCard) => {
+  const [addFavorite,setAddFavorite] = useState(false)
   const truncatedTitle = props.item.title.length > 15 ? props.item.title.substring(0, 15) + "..." : props.item.title;
   return (
     <div
@@ -22,7 +22,7 @@ const FavouriteCard = (props: favouriteCard) => {
         className="absolute h-[29px] w-[29px] right-[13px] top-[11px] cursor-pointer"
         onClick={() => alert("click on share of favorite card")}
       />
-      <div className="product-card-img w-[14.5rem] h-[285px] m-auto mt-[20px]">
+      <div className="product-card-img w-[14.5rem] h-[285px] m-auto mt-[20px]"onClick={() => alert("clicked on favrote card image ")}>
         <img src={props.item.image} alt="product" className="w-full h-full" />
       </div>
       <div className="w-[94%] m-auto h-[48px] mt-[7px]">
@@ -41,8 +41,9 @@ const FavouriteCard = (props: favouriteCard) => {
           </p>
         </div>
       </div>
-      <div className="flex items-center w-[74px] justify-between m-auto">
-        <FaHeart color="red" size={15} className="" />
+      <div className="flex items-center w-[74px] justify-between m-auto gap-1">
+        {addFavorite ? <FaHeart color="red" size={15} className="" onClick={() => setAddFavorite(!addFavorite)}/> : <FaRegHeart color="" size={15} className="" onClick={() => setAddFavorite(!addFavorite)}/>}
+        
         <p className="text-[#456EFF] text-[13px]">Favourite</p>
       </div>
     </div>
