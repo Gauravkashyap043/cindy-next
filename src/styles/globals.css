@@ -70,9 +70,7 @@
   margin: 7px auto;
   margin-bottom: 10px;
 }
-.horizontal-scrollist > div {
-  margin-left: 16px;
-}
+
 @media (max-width: 1757px) {
   .product-card-div {
     grid-template-columns: repeat(6, 1fr);
@@ -258,6 +256,9 @@
   .horizontal-scrollist > div {
     margin: 2px;
   }
+  .tab-container > div {
+    min-width: 600px;
+  }
 }
 @media (max-width: 572px) {
   .product-card-div {
@@ -291,6 +292,14 @@
   .rating-star {
     font-size: 8px;
   }
+  .tab-cont {
+    margin-bottom: 30px;
+  }
+  .tab-container {
+    /* margin: 20px 0; */
+    margin-top: 18px;
+    margin-bottom: 22px;
+  }
 }
 @media (max-width: 448px) {
   .product-card-container {
@@ -307,10 +316,11 @@
     font-size: 12px;
   }
   .pills-btn-div {
-    min-width: 800px;
+    min-width: 1200px;
   }
+
   .pills-btn {
-    width: 153px;
+    width: 123px;
     font-size: 13px;
     height: 40px;
   }
@@ -566,7 +576,7 @@
     width: 100%;
   }
   .nav-icon {
-    gap:0.45rem;
+    gap: 0.45rem;
   }
 }
 @media (max-width: 384px) {
@@ -586,17 +596,34 @@
   .search_select {
     width: 70px;
   }
-  .next {
-    width: 40px;
-    height: 40px;
-    right: -1.5%;
+  .nav-icon {
+    gap: 0.35rem;
   }
-  .prev {
-    width: 40px;
-    height: 40px;
-    left: -1%;
+}
+
+@media (max-width: 340px) {
+  .search_div {
+    width: 230px;
+    height: 24px;
+    margin: 0 4px;
+  }
+  .input_search {
+    flex: 0%;
+    width: 85px;
+    font-size: 10px;
+  }
+  .logo_div {
+    width: 35px;
+    height: 36px;
+  }
+  .search_btn {
+    font-size: 9px;
+    width: 43px;
+  }
+  .search_select {
+    width: 65px;
   }
   .nav-icon {
-    gap:0.35rem;
+    gap: 0.25rem;
   }
 }

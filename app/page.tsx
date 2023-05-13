@@ -120,7 +120,7 @@ export default function HomePage() {
         <TabContent label="Explore Our" colorLabel="Collection">
           <div>
             <div className="overflow-auto w-full tab-cont mb-[50px]">
-              <div className="h-[48px] pill-btn-div min-w-[1465px] w-full flex gap-2 text-[16px]  text-[#222222] cursor-pointer overflow-hidden">
+              <div className="h-[48px] pills-btn-div min-w-[1465px] w-full flex justify-between text-[16px]  text-[#222222] cursor-pointer overflow-hidden">
                 {pillButtonData.map((items: any) => {
                   return (
                     <div
