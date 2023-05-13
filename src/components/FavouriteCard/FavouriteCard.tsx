@@ -13,9 +13,13 @@ const FavouriteCard = (props: favouriteCard) => {
   const truncatedTitle = props.item.title.length > 15 ? props.item.title.substring(0, 15) + "..." : props.item.title;
   return (
     <div
-      className=" product-card-container border border-[#CDD8DF]  relative bg-white rounded px-1 "
+    className=""
       key={props.item.id}
     >
+      <div 
+      className=" product-card-container border border-[#CDD8DF]  relative bg-white rounded "
+      >
+
       <Image
         src={upload}
         alt=""
@@ -25,7 +29,7 @@ const FavouriteCard = (props: favouriteCard) => {
       <div className="product-card-img w-[14rem] h-[285px] m-auto mt-[20px]"onClick={() => alert("clicked on favrote card image ")}>
         <img src={props.item.image} alt="product" className="w-full h-full" />
       </div>
-      <div className="w-[94%] m-auto mt-[7px]">
+      <div className="block w-[94%] m-auto mt-[7px]">
         <div className="price-cont w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
           <div className="flex justify-center items-center gap-2">
             <p>${props.item.price}</p>
@@ -45,6 +49,7 @@ const FavouriteCard = (props: favouriteCard) => {
         {addFavorite ? <FaHeart color="red" size={15} className="" onClick={() => setAddFavorite(!addFavorite)}/> : <FaRegHeart color="" size={15} className="" onClick={() => setAddFavorite(!addFavorite)}/>}
         
         <p className="text-[#456EFF] text-[13px]">Favourite</p>
+      </div>
       </div>
     </div>
   );

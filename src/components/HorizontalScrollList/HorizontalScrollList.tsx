@@ -45,7 +45,7 @@ const HorizontalScrollList = (props: horizontalScrollList) => {
       {props.data && props.data.length && (
         <>
           <div
-            className="horizontal-scrollist flex m-auto overflow-auto scroll-smooth w-[96%] mr-1"
+            className="horizontal-scrollist min-w-[432px] flex m-auto overflow-auto scroll-smooth mr-1"
             ref={containerRef}
           >
             <div className="w-full flex gap-3">{props.data.map((item: any) => renderCards(item))}</div>

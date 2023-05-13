@@ -112,7 +112,7 @@ export default function HomePage() {
         </div>
       </div> */}
 
-      <ShopBy name="SHOP from " colorName="Favourite" />
+      <ShopBy name="Shop from " colorName="Favourite" />
       {/* <div className="w-full ">
         <HorizontalScrollList data={categoryItems} />
       </div> */}
@@ -161,7 +161,7 @@ export default function HomePage() {
             <ProductCard /> */}
           </div>
         </TabContent>
-        <TabContent label="Explore our desi" colorLabel="Collection">
+        <TabContent label="Explore Our Desi" colorLabel="Collection">
           <div className="product-card-div min-h-[500px]">
             {/* <ProductCard />
             <ProductCard />
