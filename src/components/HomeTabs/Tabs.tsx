@@ -58,8 +58,8 @@ export const Tabs = ({ children }: TabsProps) => {
 
   return (
     <div className="w-full">
-      <div className="w-full overflow-auto">
-        <div className="min-w-[600px] flex border border-transparent border-b-[#B4B3B3]  justify-between  my-[50px]">
+      <div className="w-full overflow-auto tab-container my-[50px]">
+        <div className="min-w-[600px] flex border border-transparent border-b-[#B4B3B3]  justify-between">
           {React.Children.map(children, (child) => {
             if (!React.isValidElement(child)) return null;
 

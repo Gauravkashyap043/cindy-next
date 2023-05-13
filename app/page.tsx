@@ -37,7 +37,7 @@ const fetcher = async (url: string) => {
 
 export default function HomePage() {
   const [pillActive, setPillActive] = useState<number>(pillButtonData[0].id);
-  const [pillCategory,setPillCategory] = useState<string>("")
+  const [pillCategory, setPillCategory] = useState<string>("");
   const { data, error } = useSWR<Product[]>(
     "https://fakestoreapi.com/products",
     fetcher
@@ -48,13 +48,12 @@ export default function HomePage() {
 
   const filteredProducts = data.filter((product: Product) => {
     // Check if the pill button is active and the product category matches
-    if (pillActive == 1 ||pillCategory === "All") {
+    if (pillActive == 1 || pillCategory === "All") {
       return true; // Show all products
     } else {
       return product.category === pillCategory;
     }
   });
- 
 
   return (
     <div className={` m-auto border main-container`}>
@@ -126,25 +125,27 @@ export default function HomePage() {
 
       <Tabs>
         <TabContent label="Explore Our" colorLabel="Collection">
-          <div className="overflow-auto">
-          <div className="h-[48px] pill-btn-div min-w-[1465px] w-full flex justify-between text-[16px] mb-[50px] text-[#222222] cursor-pointer overflow-hidden">
-              {pillButtonData.map((items: any) => {
-                return (
-                  <div
-                    className={`pills-btn transition ease-in-out w-[170px] h-full rounded-full border flex justify-center items-center ${
-                      pillActive == items.id
-                        ? "bg-[#008ECC] text-white"
-                        : "bg-white text-black"
-                    } `}
-                    key={items.id}
-                    onClick={() => {
-                      (setPillActive(items.id),setPillCategory(items.name));
-                    }}
-                  >
-                    {items.name}
-                  </div>
-                );
-              })}
+          <div>
+            <div className="overflow-auto w-full tab-cont mb-[50px]">
+              <div className="h-[48px] pill-btn-div min-w-[1465px] w-full flex justify-between text-[16px]  text-[#222222] cursor-pointer overflow-hidden">
+                {pillButtonData.map((items: any) => {
+                  return (
+                    <div
+                      className={`pills-btn transition ease-in-out w-[170px] h-full rounded-full border flex justify-center items-center ${
+                        pillActive == items.id
+                          ? "bg-[#008ECC] text-white"
+                          : "bg-white text-black"
+                      } `}
+                      key={items.id}
+                      onClick={() => {
+                        setPillActive(items.id), setPillCategory(items.name);
+                      }}
+                    >
+                      {items.name}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
             <div className="product-card-div">
               {filteredProducts.map((product: Product) => (

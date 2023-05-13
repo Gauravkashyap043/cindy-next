@@ -38,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               ebay
             </div>
           </div>
-          <p className="text-[10px]">⭐⭐⭐⭐⭐</p>
+          <p className="text-[10px] rating-star">⭐⭐⭐⭐⭐</p>
         </div>
         <div>
           <p className="product-name text-[15px] text-[#3E4042]">

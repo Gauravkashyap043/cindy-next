@@ -205,6 +205,9 @@
   .product-name {
     font-size: 12px;
   }
+  .rating-star {
+    font-size: 8px;
+  }
 }
 @media (max-width: 448px) {
   .product-card-container {
@@ -227,6 +230,13 @@
     width: 153px;
     font-size: 13px;
     height: 40px;
+  }
+  .tab-cont {
+    margin-bottom: 25px;
+  }
+  .tab-container {
+    margin: 25px 0;
+
   }
 }
 @media (max-width: 414px) {

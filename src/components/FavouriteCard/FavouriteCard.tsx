@@ -13,7 +13,7 @@ const FavouriteCard = (props: favouriteCard) => {
   const truncatedTitle = props.item.title.length > 15 ? props.item.title.substring(0, 15) + "..." : props.item.title;
   return (
     <div
-      className=" product-card-container border border-[#CDD8DF]  relative bg-white rounded "
+      className=" product-card-container border border-[#CDD8DF]  relative bg-white rounded px-1 "
       key={props.item.id}
     >
       <Image
@@ -22,10 +22,10 @@ const FavouriteCard = (props: favouriteCard) => {
         className="absolute h-[29px] w-[29px] right-[13px] top-[11px] cursor-pointer"
         onClick={() => alert("click on share of favorite card")}
       />
-      <div className="product-card-img w-[14.5rem] h-[285px] m-auto mt-[20px]"onClick={() => alert("clicked on favrote card image ")}>
+      <div className="product-card-img w-[14rem] h-[285px] m-auto mt-[20px]"onClick={() => alert("clicked on favrote card image ")}>
         <img src={props.item.image} alt="product" className="w-full h-full" />
       </div>
-      <div className="w-[94%] m-auto h-[48px] mt-[7px]">
+      <div className="w-[94%] m-auto mt-[7px]">
         <div className="price-cont w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
           <div className="flex justify-center items-center gap-2">
             <p>${props.item.price}</p>
@@ -33,7 +33,7 @@ const FavouriteCard = (props: favouriteCard) => {
               ebay
             </div>
           </div>
-          <p className="text-[10px]">⭐⭐⭐⭐⭐</p>
+          <p className="text-[10px] rating-star">⭐⭐⭐⭐⭐</p>
         </div>
         <div>
           <p className="product-name text-[15px] text-[#3E4042]">
