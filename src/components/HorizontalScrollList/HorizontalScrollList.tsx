@@ -45,10 +45,10 @@ const HorizontalScrollList = (props: horizontalScrollList) => {
       {props.data && props.data.length && (
         <>
           <div
-            className="horizontal-scrollist min-w-[432px] flex m-auto overflow-auto scroll-smooth mr-1"
+            className="horizontal-scrollist flex overflow-auto scroll-smooth"
             ref={containerRef}
           >
-            <div className="w-full flex gap-3">{props.data.map((item: any) => renderCards(item))}</div>
+            <div className="w-full flex gap-3 ml-16">{props.data.map((item: any) => renderCards(item))}</div>
           </div>
           <div>
             {/* <FaChevronLeft
@@ -63,13 +63,13 @@ const HorizontalScrollList = (props: horizontalScrollList) => {
       <Image
               src={prev}
               alt=""
-              className="prev w-[86px] h-[86px] absolute top-[40%] cursor-pointer  "
+              className="prev w-[70px] h-[70px] absolute top-[40%] cursor-pointer  "
               onClick={handleScrollLeft}
             />
             <Image
               src={next}
               alt=""
-              className="next w-[86px] h-[86px] absolute top-[40%] right-0 cursor-pointer"
+              className="next w-[70px] h-[70px] absolute top-[40%] right-0 cursor-pointer"
               onClick={handleScrollRight}
             />
     </div>

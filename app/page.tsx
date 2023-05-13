@@ -113,21 +113,14 @@ export default function HomePage() {
       </div> */}
 
       <ShopBy name="Shop from " colorName="Favourite" />
-      {/* <div className="w-full ">
-        <HorizontalScrollList data={categoryItems} />
-      </div> */}
-
-      {/* <ShopBy name="FAVORITE PRODUCTS" /> */}
-      {/* <HorizontalScrollList data={cardFavItems} /> */}
       <div className="w-full">
         <HorizontalScrollList data={data} />
       </div>
-
       <Tabs>
         <TabContent label="Explore Our" colorLabel="Collection">
           <div>
             <div className="overflow-auto w-full tab-cont mb-[50px]">
-              <div className="h-[48px] pill-btn-div min-w-[1465px] w-full flex justify-between text-[16px]  text-[#222222] cursor-pointer overflow-hidden">
+              <div className="h-[48px] pill-btn-div min-w-[1465px] w-full flex gap-2 text-[16px]  text-[#222222] cursor-pointer overflow-hidden">
                 {pillButtonData.map((items: any) => {
                   return (
                     <div

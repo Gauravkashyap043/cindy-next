@@ -13,6 +13,7 @@ const FavouriteCard = (props: favouriteCard) => {
   const truncatedTitle = props.item.title.length > 15 ? props.item.title.substring(0, 15) + "..." : props.item.title;
   return (
     <div
+
     className=""
       key={props.item.id}
     >
@@ -26,7 +27,7 @@ const FavouriteCard = (props: favouriteCard) => {
         className="absolute h-[29px] w-[29px] right-[13px] top-[11px] cursor-pointer"
         onClick={() => alert("click on share of favorite card")}
       />
-      <div className="product-card-img w-[14rem] h-[285px] m-auto mt-[20px]"onClick={() => alert("clicked on favrote card image ")}>
+      <div className="product-card-img  m-auto mt-[24px]"onClick={() => alert("clicked on favrote card image ")}>
         <img src={props.item.image} alt="product" className="w-full h-full" />
       </div>
       <div className="block w-[94%] m-auto mt-[7px]">
@@ -45,7 +46,7 @@ const FavouriteCard = (props: favouriteCard) => {
           </p>
         </div>
       </div>
-      <div className="flex items-center w-[74px] justify-between m-auto gap-1">
+      <div className="favorite-cont flex items-center w-[74px] justify-between m-auto gap-1">
         {addFavorite ? <FaHeart color="red" size={15} className="" onClick={() => setAddFavorite(!addFavorite)}/> : <FaRegHeart color="" size={15} className="" onClick={() => setAddFavorite(!addFavorite)}/>}
         
         <p className="text-[#456EFF] text-[13px]">Favourite</p>

@@ -16,7 +16,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   const truncatedTitle =
     product.title.length > 25
-      ? product.title.substring(0,windowSize.current[0] < 472 ? 20 : 15) + "..."
+      ? product.title.substring(0,windowSize.current[0] < 472 ? 25 : 15) + "..."
       : product.title;
 
   return (
@@ -27,10 +27,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="absolute h-[29px] w-[29px] right-[15px] top-[11px] cursor-pointer"
         onClick={() => alert("click on product card")}
       />
-      <div className="product-card-img w-[14rem] h-[285px] m-auto mt-[20px]" onClick={() => alert("clicked on product image")}>
+      <div className="product-card-img  m-auto" onClick={() => alert("clicked on product image")}>
         <img src={product.image} alt="" className="h-full w-full" />
       </div>
-      <div className="w-[94%] m-auto  mt-[7px]">
+      <div className="w-[94%] m-auto  mt-[10px]">
         <div className="price-cont w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
           <div className="flex justify-center items-center gap-2">
             <p>${product.price}</p>
@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </p>
         </div>
       </div>
-      <div className="flex items-center w-[74px] justify-between m-auto">
+      <div className="favorite-cont flex items-center w-[74px] justify-between m-auto">
       {addFavorite ? <FaHeart color="red" size={15} className="" onClick={() => setAddFavorite(!addFavorite)}/> : <FaRegHeart color="" size={15} className="" onClick={() => setAddFavorite(!addFavorite)}/>}
 
         <p className="text-[#456EFF] text-[13px]">Favourite</p>

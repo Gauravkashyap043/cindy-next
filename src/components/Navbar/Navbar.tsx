@@ -22,22 +22,22 @@ const Navbar: React.FC = (): JSX.Element => {
         <div className="logo_div w-[73px] h-[73px] max-[474px]:w-[65px] max-[440]:w-[55px]">
           <Image src={logo} alt="this is logo" className="cursor-pointer" />
         </div>
-        <div className="search_div w-[665px] h-[40px] border border-[#0039f0] flex rounded">
+        <div className="search_div w-[665px] h-[40px] border border-[#008ECC] flex rounded">
           <input
             type="search"
             className="input_search flex-1 outline-none h-full px-2 bg-transparent"
             placeholder="Search"
           />
-          <div className="search_select w-[145px] h-full  border border-blue-600">
+          <div className="search_select w-[145px] h-full  border border-[#008ECC]">
             <select className="search_option text-[14px] w-full h-full outline-none cursor-pointer bg-transparent flex justify-center items-center font-bold">
               <option value="">All Category</option>
             </select>
           </div>
-          <button className="search_btn w-[100px] h-full  text-white border border-blue-700 bg-[#0039f0]">
+          <button className="search_btn w-[100px] h-full  text-white border border-[#008ECC] bg-[#008ECC]">
             Search
           </button>
         </div>
-        <div className="flex items-center gap-3 ">
+        <div className="nav-icon flex items-center gap-3 ">
           <div className="cursor-pointer">
             <FaHeart color="#8B96A5" size={18} className="cursor-pointer m-auto" />
             <p className="icon_text text-[12px] text-[#8B96A5] mt-1 font-[400]">Favourite</p>
