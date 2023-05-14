@@ -4,9 +4,8 @@ import React, { useState } from "react";
 import { useSession, signOut, signIn } from "next-auth/react";
 import styles from "./navbar.module.scss";
 import Image from "next/image";
-import { FaSearch, FaRegHeart, FaHeart, FaRegUser,FaUserAlt } from "react-icons/fa";
+import { FaHeart,FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import logo from "../../../assets/images/logo.png";
 
 const Navbar: React.FC = (): JSX.Element => {

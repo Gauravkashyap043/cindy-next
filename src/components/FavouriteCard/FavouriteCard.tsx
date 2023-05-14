@@ -40,9 +40,9 @@ const FavouriteCard = (props: favouriteCard) => {
           </div>
           <p className="text-[10px] rating-star">⭐⭐⭐⭐⭐</p>
         </div>
-        <div>
-          <p className="product-name text-[15px] text-[#3E4042]">
-            {truncatedTitle}
+        <div className="w-[96%] ">
+          <p className="product-name truncate  text-[15px] text-[#3E4042]">
+          {props.item.title}
           </p>
         </div>
       </div>

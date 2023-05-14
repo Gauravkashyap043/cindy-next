@@ -1,7 +1,7 @@
 'use client'
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import { FaFileUpload, FaHeart, FaRegHeart, FaShareAlt } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import printer from "../../../assets/images/printer.png";
 import Image from "next/image";
 import upload from "../../../assets/images/upload.png";
@@ -11,14 +11,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const [addFavorite,setAddFavorite] = useState(false)
-  const windowSize = useRef([window.innerWidth, window.innerHeight]);
-
-  const truncatedTitle =
-    product.title.length > 25
-      ? product.title.substring(0,windowSize.current[0] < 472 ? 25 : 15) + "..."
-      : product.title;
-
+  const [addFavorite,setAddFavorite] = useState(false)             
   return (
     <div className="product-card-container border border-[#CDD8DF]  relative bg-white rounded">
       <Image
@@ -40,9 +33,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
           <p className="text-[10px] rating-star">⭐⭐⭐⭐⭐</p>
         </div>
-        <div>
-          <p className="product-name text-[15px] text-[#3E4042]">
-            {truncatedTitle}
+        <div className="w-[96%]">
+          <p className="product-name truncate text-[15px] text-[#3E4042]">
+            {product.title}
           </p>
         </div>
       </div>
