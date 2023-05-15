@@ -51,7 +51,7 @@
 .product-card-div {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  /* place-items: ; */
+  place-items: stretch center;
   gap: 15px 10px;
 }
 .product-card-container {
@@ -415,13 +415,12 @@
 /* =======================main-container============== */
 
 .main-container {
-  width: 97%;
-  padding: 0 1rem;
+  width: 95%;
 }
 
 @media (max-width: 1695px) {
   .main-container {
-    width: 98%;
+    width: 97%;
   }
 }
 

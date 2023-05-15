@@ -10,7 +10,6 @@ interface favouriteCard {
 }
 const FavouriteCard = (props: favouriteCard) => {
   const [addFavorite,setAddFavorite] = useState(false)
-  const truncatedTitle = props.item.title.length > 15 ? props.item.title.substring(0, 15) + "..." : props.item.title;
   return (
     <div
 

@@ -1,0 +1,47 @@
+@media (max-width: 641px) {
+  .favourite_filter {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15px;
+    color: #1c1c1c;
+  }
+
+}
+@media (max-width: 518px) {
+    .favourite_filter {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      color: #1c1c1c;
+      padding-left: 11px;
+
+    }
+    .select {
+        width: 150px;
+    }
+  
+  }
+  @media (max-width: 518px) {
+    .favourite_filter {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 11px;
+      color: #1c1c1c;
+      padding-left: 11px;
+    }
+    .select {
+        width: 130px;
+    }
+    .breadcrumb {
+        padding: 0 11px;
+    }
+  
+  }
+  @media (max-width: 430px) {
+    .select {
+        width: 100px;
+    }
+  
+  }

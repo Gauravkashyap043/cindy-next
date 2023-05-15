@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useSession, signOut, signIn } from "next-auth/react";
 import styles from "./navbar.module.scss";
 import Image from "next/image";
-import { FaHeart,FaUserAlt } from "react-icons/fa";
+import { FaHeart, FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 import logo from "../../../assets/images/logo.png";
 
@@ -38,8 +38,17 @@ const Navbar: React.FC = (): JSX.Element => {
         </div>
         <div className="nav-icon flex items-center gap-3 ">
           <div className="cursor-pointer">
-            <FaHeart color="#8B96A5" size={18} className="cursor-pointer m-auto" />
-            <p className="icon_text text-[12px] text-[#8B96A5] mt-1 font-[400]">Favourite</p>
+            <Link href={"/favourite"}>
+              <FaHeart
+                color="#8B96A5"
+                size={18}
+                className="cursor-pointer m-auto"
+              />
+              <p className="icon_text text-[12px] text-[#8B96A5] mt-1 font-[400]">
+              Favourite
+            </p>
+            </Link>
+            
           </div>
           <div
             className="relative rounded-full flex justify-center items-center"
@@ -52,7 +61,9 @@ const Navbar: React.FC = (): JSX.Element => {
                   size={18}
                   className="cursor-pointer m-auto"
                 />
-                <p className="icon_text text-[12px] text-[#8B96A5] mt-1 font-[400]">Profile</p>
+                <p className="icon_text text-[12px] text-[#8B96A5] mt-1 font-[400]">
+                  Profile
+                </p>
               </div>
             ) : (
               // <Image
