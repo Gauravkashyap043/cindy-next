@@ -7,6 +7,7 @@ import Image from "next/image";
 import { FaHeart, FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 import logo from "../../../assets/images/logo.png";
+import { FcGoogle } from "react-icons/fc";
 
 const Navbar: React.FC = (): JSX.Element => {
   const { data: session } = useSession();
@@ -88,11 +89,12 @@ const Navbar: React.FC = (): JSX.Element => {
                   </button>
                 ) : (
                   <button
-                    className="w-[150px] h-[30px] border rounded-full text-sm"
+                    className="px-2 gap-1 h-[30px] border rounded-full text-sm flex justify-center items-center"
                     onClick={async () => {
                       await signIn();
                     }}
                   >
+                    <FcGoogle size={20}/>
                     Login with Google
                   </button>
                 )}
