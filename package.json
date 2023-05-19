@@ -25,6 +25,7 @@
     "react-geolocated": "^4.0.3",
     "react-icons": "^4.8.0",
     "sass": "^1.62.1",
+    "serpapi": "^1.1.1",
     "sharp": "^0.32.1",
     "swr": "^2.1.5",
     "typescript": "5.0.4"
