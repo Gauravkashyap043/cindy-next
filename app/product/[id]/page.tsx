@@ -38,8 +38,8 @@ const SingleProduct: React.FC = ({params} :any) => {
     setSelectedImage(imageSrc);
   };
   return (
-    <div className="w-[75%] m-auto border border-red-600 main-container">
-      <div className="w-full flex justify-between">
+    <div className="w-[75%] m-auto  main-container">
+      <div className="w-full flex justify-between mt-3">
         {/* left side */}
         <div className="relative w-[46%] ">
           <div className=" border flex justify-evenly sticky top-2">
@@ -346,6 +346,9 @@ const SingleProduct: React.FC = ({params} :any) => {
             </Tabs>
           </div>
         </div>
+      </div>
+      <div className="w-full h-[500px] border mt-5 flex justify-center items-center">
+        <h3>Product Recommended section</h3>
       </div>
     </div>
   );

@@ -6,7 +6,8 @@ import Image from "next/image";
 import upload from "../../../assets/images/upload.png";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-// import { BsUpload } from "react-icons/bs";
+import Link from "next/link";
+
 interface ProductCardProps {
   product: Product;
 }
@@ -16,19 +17,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const router = useRouter();
 
   return (
-    <div className="product-card-container border border-[#CDD8DF]  relative bg-white rounded">
+    <div className="product-card-container border border-[#CDD8DF]  relative bg-white rounded cursor-pointer">
       <Image
         src={upload}
         alt=""
         className="absolute h-[29px] w-[29px] right-[15px] top-[11px] cursor-pointer"
         onClick={() => alert("click on product card")}
       />
+      <Link href={`/product/${product.id}`}>
       <div
-        className="product-card-img  m-auto"
-        onClick={() => alert("clicked on product image")}
+        className="product-card-img  m-auto cursor-pointer"
+        // onClick={() => alert("clicked on product image")}
       >
         <img src={product.image} alt="" className="h-full w-full" />
       </div>
+      </Link>
+      
       <div className="w-[94%] m-auto  mt-[10px]">
         <div className="price-cont w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
           <div className="flex justify-center items-center gap-2">
