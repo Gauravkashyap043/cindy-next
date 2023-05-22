@@ -43,11 +43,11 @@ export default function HomePage() {
 				<TabContent label='Explore Our' colorLabel='Collection'>
 					<div>
 						<div className='overflow-auto w-full tab-cont mb-[50px]'>
-							<div className='h-[48px] pills-btn-div min-w-[1465px] w-full flex justify-between text-[16px]  text-[#222222] cursor-pointer overflow-hidden'>
+							<div className='min-w-[1578px] overflow-hidden h-[48px] pills-btn-div w-full flex text-[16px]  text-[#222222] cursor-pointer'>
 								{pillButtonData.map((items: any) => {
 									return (
 										<div
-											className={`pills-btn transition ease-in-out w-[170px] h-full rounded-full border flex justify-center items-center ${
+											className={`pills-btn transition ease-in-out w-[170px] h-full rounded-full border flex justify-center items-center mr-2 ${
 												pillActive == items.id
 													? 'bg-[#008ECC] text-white'
 													: 'bg-white text-black'
