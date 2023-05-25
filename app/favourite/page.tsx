@@ -4,7 +4,7 @@ import ProductCard from "@/src/components/ProductCard/ProductCard";
 import useSWR from "swr";
 import axios from "axios";
 import Link from "next/link";
-import styles from "../../src/styles/favourite.module.css";
+import styles from "./favourite.module.css";
 
 const fetcher = async (url: string) => {
   const response = await axios.get(url);

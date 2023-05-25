@@ -9,28 +9,29 @@ import headphone1 from "../../../assets/images/headphone1.png";
 import headphone2 from "../../../assets/images/headphone2.png";
 import headphone3 from "../../../assets/images/headphone3.png";
 import headphone4 from "../../../assets/images/headphone4.png";
+import styles from "./productDetails.module.css";
 // const imageData: any = [first, second, third, forth];
 const imageData: any = [headphone1, headphone2, headphone3, headphone4];
 
-const SingleProduct: React.FC = ({params} :any) => {
+const SingleProduct: React.FC = ({ params }: any) => {
   const [latitude, setLatitude] = useState<number | null>(null);
   const [longitude, setLongitude] = useState<number | null>(null);
   const [selectedImage, setSelectedImage] = useState<any>(imageData[0]);
 
   useEffect(() => {
     // Check if geolocation is available in the browser
-    if ('geolocation' in navigator) {
+    if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
-        position => {
+        (position) => {
           setLatitude(position.coords.latitude);
           setLongitude(position.coords.longitude);
         },
-        error => {
-          console.log('Error getting geolocation:', error);
+        (error) => {
+          console.log("Error getting geolocation:", error);
         }
       );
     } else {
-      console.log('Geolocation is not supported in this browser.');
+      console.log("Geolocation is not supported in this browser.");
     }
   }, []);
 
@@ -38,11 +39,16 @@ const SingleProduct: React.FC = ({params} :any) => {
     setSelectedImage(imageSrc);
   };
   return (
-    <div className="w-[75%] m-auto  main-container">
-      <div className="w-full flex justify-between mt-3">
+    <div className="m-auto  main-container">
+      <div className="mt-[11px] flex gap-1 mb-[49px] text-gray-500">
+        <p>Home</p>
+        <p>{">"}</p>
+        <p>Product Details</p>
+      </div>
+      <div className="w-full flex justify-between mt-3 bg-white py-[2rem] px-[1.2rem] rounded-lg">
         {/* left side */}
         <div className="relative w-[46%] ">
-          <div className=" border flex justify-evenly sticky top-2">
+          <div className=" flex justify-evenly sticky top-2">
             <div className="w-[94px]">
               {imageData.map((imageSrc: any, i: number) => {
                 return (
@@ -76,13 +82,12 @@ const SingleProduct: React.FC = ({params} :any) => {
           </div>
         </div>
         {/* right side */}
-        <div className="w-[53%]  border px-2">
+        <div className="w-[53%] px-2">
           <p className="font-[700] text-[22px]">
             Logitech G435 Lightspeed and Bluetooth Wireless Over Ear Gaming
             Headphones - Lightweight with Dual mics, 18h Battery, Compatible
             with Dolby Atmos, PC, PS4, PS5, Mobile - White {params.id}
           </p>
-          <p>Latitude: {latitude}, Longitude: {longitude}</p>
           <p className="mt-[26px] text-green-600 font-[500] text-[14px]">
             Special price
           </p>
@@ -109,7 +114,7 @@ const SingleProduct: React.FC = ({params} :any) => {
               View all Offer
             </button>
           </div>
-          <div className="w-full flex items-center justify-between mt-2">
+          {/* <div className="w-full flex items-center justify-between mt-2">
             <div className="w-[154px] h-[118px] px-[10px] py-[8px] border-2 rounded">
               <h4 className="">No cost EMI</h4>
               <div className="h-[55px] w-full text-[10px] leading-[18px] text-[#0F1111]">
@@ -146,7 +151,7 @@ const SingleProduct: React.FC = ({params} :any) => {
                 amazon
               </div>
             </div>
-          </div>
+          </div> */}
 
           <h4 className="my-3">Available On</h4>
           <div className="mt-3">

@@ -26,7 +26,7 @@ const FavouriteCard = (props: favouriteCard) => {
         className="absolute h-[29px] w-[29px] right-[13px] top-[11px] cursor-pointer"
         onClick={() => alert("click on share of favorite card")}
       />
-      <div className="product-card-img  m-auto mt-[24px]"onClick={() => alert("clicked on favrote card image ")}>
+      <div className="product-card-img  m-auto mt-[24px] cursor-pointer"onClick={() => alert("clicked on favrote card image ")}>
         <img src={props.item.image} alt="product" className="w-full h-full" />
       </div>
       <div className="block w-[94%] m-auto mt-[7px]">
