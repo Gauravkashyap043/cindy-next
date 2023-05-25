@@ -20,7 +20,7 @@ const Tab = ({ label, activeTab, onClick, colorLabel }: TabProps) => {
     >
       <button
         onClick={() => onClick(label)}
-        className={`tab_btn h-[46px] text-[24px] xl:text-[24px] lg:text-[22px] md:text-[18px] sm:text-[16px]  font-[700] flex  items-center gap-1 border-3 border-blue-500 pr-4`}
+        className={`tab_btn h-[46px] text-[22px] xl:text-[22px] lg:text-[22px] md:text-[18px] sm:text-[16px]  font-[500] flex  items-center gap-1 border-3 border-blue-500 pr-4`}
       >
         {label}{" "}
         <span className={isActive ? "text-[#008ECC]" : "text-[#C1C1C1]"}>
