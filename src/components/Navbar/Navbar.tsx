@@ -20,7 +20,9 @@ const Navbar: React.FC = (): JSX.Element => {
     <nav className="w-full  m-auto bg-white">
       <div className="navbar w-[90%] h-[120px] m-auto flex justify-between items-center bg-white main-container">
         <div className="logo_div w-[73px] h-[73px] max-[474px]:w-[65px] max-[440]:w-[55px]">
-          <Image src={logo} alt="this is logo" className="cursor-pointer" />
+          <Link href={"/"}>
+            <Image src={logo} alt="this is logo" className="cursor-pointer" />
+          </Link>
         </div>
         <div className="search_div w-[665px] h-[40px] border border-[#008ECC] flex rounded">
           <input
@@ -46,10 +48,9 @@ const Navbar: React.FC = (): JSX.Element => {
                 className="cursor-pointer m-auto"
               />
               <p className="icon_text text-[12px] text-[#8B96A5] mt-1 font-[400]">
-              Favourite
-            </p>
+                Favourite
+              </p>
             </Link>
-            
           </div>
           <div
             className="relative rounded-full flex justify-center items-center"
@@ -94,7 +95,7 @@ const Navbar: React.FC = (): JSX.Element => {
                       await signIn();
                     }}
                   >
-                    <FcGoogle size={20}/>
+                    <FcGoogle size={20} />
                     Login with Google
                   </button>
                 )}

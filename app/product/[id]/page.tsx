@@ -14,30 +14,12 @@ import styles from "./productDetails.module.css";
 const imageData: any = [headphone1, headphone2, headphone3, headphone4];
 
 const SingleProduct: React.FC = ({ params }: any) => {
-  const [latitude, setLatitude] = useState<number | null>(null);
-  const [longitude, setLongitude] = useState<number | null>(null);
   const [selectedImage, setSelectedImage] = useState<any>(imageData[0]);
-
-  useEffect(() => {
-    // Check if geolocation is available in the browser
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLatitude(position.coords.latitude);
-          setLongitude(position.coords.longitude);
-        },
-        (error) => {
-          console.log("Error getting geolocation:", error);
-        }
-      );
-    } else {
-      console.log("Geolocation is not supported in this browser.");
-    }
-  }, []);
-
   const handleImageClick = (imageSrc: any) => {
     setSelectedImage(imageSrc);
   };
+
+
   return (
     <div className="m-auto  main-container">
       <div className="mt-[11px] flex gap-1 mb-[49px] text-gray-500">
@@ -48,12 +30,13 @@ const SingleProduct: React.FC = ({ params }: any) => {
       <div className="w-full flex justify-between mt-3 bg-white py-[2rem] px-[1.2rem] rounded-lg">
         {/* left side */}
         <div className="relative w-[46%] ">
-          <div className=" flex justify-evenly sticky top-2">
-            <div className="w-[94px]">
+          <div className="pdp-img-cont flex gap-3 sticky top-2">
+            <div className="small-img-cont w-[94px] h-[425px] border 
+            ">
               {imageData.map((imageSrc: any, i: number) => {
                 return (
                   <div
-                    className="w-full h-[94px] mb-[17px] border rounded cursor-pointer"
+                    className="small-img w-full h-[94px] mb-[17px] border rounded cursor-pointer"
                     key={i}
                   >
                     <Image
@@ -69,8 +52,9 @@ const SingleProduct: React.FC = ({ params }: any) => {
               {/* <div className="w-full h-[94px] mb-[17px] border border-green-600 rounded"></div>
               <div className="w-full h-[94px] mb-[17px] border border-green-600 rounded"></div>
               <div className="w-full h-[94px] mb-[17px] border border-green-600 rounded"></div> */}
+
             </div>
-            <div className="w-[424px] h-[425px] border rounded-lg">
+            <div className="pdp-selected-img w-[424px] h-[425px] border rounded-lg">
               {selectedImage && (
                 <Image
                   src={selectedImage}
@@ -83,16 +67,16 @@ const SingleProduct: React.FC = ({ params }: any) => {
         </div>
         {/* right side */}
         <div className="w-[53%] px-2">
-          <p className="font-[700] text-[22px]">
+          <p className="pdp-product-name font-[700] text-[22px]">
             Logitech G435 Lightspeed and Bluetooth Wireless Over Ear Gaming
             Headphones - Lightweight with Dual mics, 18h Battery, Compatible
             with Dolby Atmos, PC, PS4, PS5, Mobile - White {params.id}
           </p>
-          <p className="mt-[26px] text-green-600 font-[500] text-[14px]">
+          <p className="mt-[26px] md:mt-[5px] text-green-600 font-[500] text-[14px]">
             Special price
           </p>
           <div className="flex gap-3 items-center">
-            <p className="font-[500] text-[28px]">$ 49.9</p>
+            <p className="pdp-price font-[500] text-[28px]">$ 49.9</p>
             <p className="text-[16px] text-[#878787]">
               <span className="line-through">$1,449</span>{" "}
               <span className="font-bold text-green-600 ml-1">66% off</span>
@@ -108,12 +92,13 @@ const SingleProduct: React.FC = ({ params }: any) => {
             </div>
             <div className="text-[#878787]">2,131 ratings and 186 reviews</div>
           </div>
-          <div className="w-full flex mt-6 justify-between items-center">
+          {/* <div className="w-full flex mt-6 justify-between items-center">
             <p className="text-[13px] font-bold">Offer Available</p>
-            <button className="bg-white text-blue-600 font-bold text-[12px] border py-[11px] px-[13px] rounded-full">
+            <button className="bg-white text-blue-600 font-bold text-[12px] border py-[11px] md:py-[8px] sm:py-[7px] px-[13px] rounded-full">
               View all Offer
             </button>
-          </div>
+          </div> */}
+
           {/* <div className="w-full flex items-center justify-between mt-2">
             <div className="w-[154px] h-[118px] px-[10px] py-[8px] border-2 rounded">
               <h4 className="">No cost EMI</h4>
@@ -155,7 +140,21 @@ const SingleProduct: React.FC = ({ params }: any) => {
 
           <h4 className="my-3">Available On</h4>
           <div className="mt-3">
-            <div className="w-full flex justify-between items-center bg-[#f9f9f9] pr-3 rounded-full shadow-md mt-3">
+            <div className="other-affiliate w-full flex justify-between items-center bg-[#f9f9f9] pr-3 rounded-full shadow-md mt-3">
+              <div className="affiliate-logo w-[132px] h-[42px] rounded-full border flex justify-center items-center">
+                Amazon
+              </div>
+              <div className="colorful-dots h-[42px] flex justify-center gap-2 items-center">
+                <div className="w-[18px] h-[18px] rounded-full bg-[#FF2E2E]"></div>
+                <div className="w-[18px] h-[18px] rounded-full bg-[#1AC8FF]"></div>
+                <div className="w-[18px] h-[18px] rounded-full bg-[#FF1A95]"></div>
+              </div>
+              <p className="pdp-price font-[500] text-[28px] text-green-600">$ 49.9</p>
+              <button className="bg-[#0039F0] w-[75px] h-[26.5px] text-white text-[14px] font-[500] rounded-full">
+                Buy Now
+              </button>
+            </div>
+            {/* <div className="w-full flex justify-between items-center bg-[#f9f9f9] pr-3 rounded-full shadow-md mt-3">
               <div className="w-[132px] h-[42px] rounded-full border flex justify-center items-center">
                 Amazon
               </div>
@@ -182,28 +181,14 @@ const SingleProduct: React.FC = ({ params }: any) => {
               <button className="bg-[#0039F0] w-[75px] h-[26.5px] text-white text-[14px] font-[500] rounded-full">
                 Buy Now
               </button>
-            </div>
-            <div className="w-full flex justify-between items-center bg-[#f9f9f9] pr-3 rounded-full shadow-md mt-3">
-              <div className="w-[132px] h-[42px] rounded-full border flex justify-center items-center">
-                Amazon
-              </div>
-              <div className="w-[132px] h-[42px] flex justify-center gap-2 items-center">
-                <div className="w-[18px] h-[18px] rounded-full bg-[#FF2E2E]"></div>
-                <div className="w-[18px] h-[18px] rounded-full bg-[#1AC8FF]"></div>
-                <div className="w-[18px] h-[18px] rounded-full bg-[#FF1A95]"></div>
-              </div>
-              <p className="font-[500] text-[28px] text-green-600">$ 49.9</p>
-              <button className="bg-[#0039F0] w-[75px] h-[26.5px] text-white text-[14px] font-[500] rounded-full">
-                Buy Now
-              </button>
-            </div>
+            </div> */}
           </div>
           <div>
             <Tabs>
               <TabContent label="Product Details">
-                <div className="w-[95%] border mt-1 p-2">
+                <div className="w-full border mt-1 p-2 ">
                   <p className="text-[13px] font-bold mb-6">About this item</p>
-                  <ul className="list-disc ml-5 border-transparent">
+                  <ul className="pdp-product-details list-disc ml-5 border-transparent">
                     <li>
                       Versatile: Logitech G435 is the first headset with
                       LIGHTSPEED wireless and low latency Bluetooth
@@ -353,7 +338,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
         </div>
       </div>
       <div className="w-full h-[500px] border mt-5 flex justify-center items-center">
-        <h3>Product Recommended section</h3>
+        <h3>Product Recommendation section</h3>
       </div>
     </div>
   );
