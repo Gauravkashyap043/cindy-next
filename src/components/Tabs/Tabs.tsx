@@ -11,7 +11,7 @@ const Tab = ({ label, activeTab, onClick }: TabProps) => {
 
   return (
     <li className={isActive ? "w-[33%] active border border-[#EBEBEB] bg-white shadow-[0px_2px_15px rgba(0, 0, 0, 0.15)]" : "border-[#FCFCFC] bg-[#F3F1F1] w-[33%]"}>
-      <button onClick={() => onClick(label)} className="w-full h-[48px] rounded text-[13px] font-[700] flex justify-center items-center">
+      <button onClick={() => onClick(label)} className="pdp-tab-btn w-full h-[48px] rounded text-[13px] font-[700] flex justify-center items-center">
         {label}
       </button>
     </li>
@@ -43,7 +43,7 @@ export const Tabs = ({ children }: TabsProps) => {
   };
 
   return (
-    <div className="w-full my-8">
+    <div className="pdp-tab w-full my-8">
       <ul className="flex w-full border justify-between bg-[#F3F1F1] rounded">
         {React.Children.map(children, (child) => {
           if (!React.isValidElement(child)) return null;

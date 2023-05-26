@@ -10,6 +10,7 @@ import headphone2 from "../../../assets/images/headphone2.png";
 import headphone3 from "../../../assets/images/headphone3.png";
 import headphone4 from "../../../assets/images/headphone4.png";
 import styles from "./productDetails.module.css";
+import Link from "next/link";
 // const imageData: any = [first, second, third, forth];
 const imageData: any = [headphone1, headphone2, headphone3, headphone4];
 
@@ -23,14 +24,17 @@ const SingleProduct: React.FC = ({ params }: any) => {
   return (
     <div className="m-auto  main-container">
       <div className="mt-[11px] flex gap-1 mb-[49px] text-gray-500">
-        <p>Home</p>
+        <Link href={"/"}>
+        
+        <p className="hover:text-blue-500 cursor-pointer">Home</p>
+        </Link>
         <p>{">"}</p>
         <p>Product Details</p>
       </div>
-      <div className="w-full flex justify-between mt-3 bg-white py-[2rem] px-[1.2rem] rounded-lg">
+      <div className="pdp-container w-full flex justify-between mt-3 bg-white py-[2rem] px-[1.2rem] rounded-lg">
         {/* left side */}
         <div className="relative w-[46%] ">
-          <div className="pdp-img-cont flex gap-3 sticky top-2">
+          <div className="pdp-img-cont border flex gap-3 sticky top-2">
             <div className="small-img-cont w-[94px] h-[425px] border 
             ">
               {imageData.map((imageSrc: any, i: number) => {
@@ -72,7 +76,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
             Headphones - Lightweight with Dual mics, 18h Battery, Compatible
             with Dolby Atmos, PC, PS4, PS5, Mobile - White {params.id}
           </p>
-          <p className="mt-[26px] md:mt-[5px] text-green-600 font-[500] text-[14px]">
+          <p className="pdp-special-price mt-[26px] md:mt-[5px] text-green-600 font-[500] text-[14px]">
             Special price
           </p>
           <div className="flex gap-3 items-center">
@@ -186,7 +190,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
           <div>
             <Tabs>
               <TabContent label="Product Details">
-                <div className="w-full border mt-1 p-2 ">
+                <div className="w-full mt-1 p-2 ">
                   <p className="text-[13px] font-bold mb-6">About this item</p>
                   <ul className="pdp-product-details list-disc ml-5 border-transparent">
                     <li>
@@ -222,7 +226,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
                 </div>
               </TabContent>
               <TabContent label="Specification">
-                <div className="w-[95%] border mt-1 py-2">
+                <div className="w-[95%] mt-1 py-2">
                   <div className="flex items-center text-[13px] mt-3 gap-10">
                     <div className="w-[150px] font-bold">
                       <p>Brand</p>
@@ -266,7 +270,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
                 </div>
               </TabContent>
               <TabContent label="Reviews">
-                <div className="w-[95%] border mt-1 py-2 mb-2">
+                <div className="w-[95%] mt-1 py-2 mb-2">
                   <div>
                     <div className="bg-green-600 text-white w-[34px] h-[17px]  flex justify-center items-center rounded text-[12px] font-[500] p-1">
                       <span>5</span>
@@ -299,7 +303,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
                     </div>
                   </div>
                 </div>
-                <div className="w-[95%] border mt-1 py-2 mb-2">
+                <div className="w-[95%] mt-1 py-2 mb-2">
                   <div>
                     <div className="bg-green-600 text-white w-[34px] h-[17px]  flex justify-center items-center rounded text-[12px] font-[500] p-1">
                       <span>5</span>
