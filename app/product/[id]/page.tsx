@@ -23,7 +23,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
 
   return (
     <div className="m-auto  main-container">
-      <div className="mt-[11px] flex gap-1 mb-[49px] text-gray-500">
+      <div className="pdp-breadcrumb mt-[11px] flex gap-1 mb-[49px] text-gray-500">
         <Link href={"/"}>
         
         <p className="hover:text-blue-500 cursor-pointer">Home</p>

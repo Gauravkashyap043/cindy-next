@@ -1345,6 +1345,10 @@
   .pdp-container {
     padding: 1.2rem 0.5rem;
   }
+  .pdp-breadcrumb {
+    margin-bottom: 11px;
+    margin-left: 5px;
+  }
   .pdp-img-cont {
     flex-direction: column-reverse;
     justify-content: center;
