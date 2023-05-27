@@ -16,8 +16,10 @@ const imageData: any = [headphone1, headphone2, headphone3, headphone4];
 
 const SingleProduct: React.FC = ({ params }: any) => {
   const [selectedImage, setSelectedImage] = useState<any>(imageData[0]);
-  const handleImageClick = (imageSrc: any) => {
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const handleImageClick = (imageSrc: any, index: number) => {
     setSelectedImage(imageSrc);
+    setSelectedIndex(index);
   };
 
 
@@ -34,19 +36,20 @@ const SingleProduct: React.FC = ({ params }: any) => {
       <div className="pdp-container w-full flex justify-between mt-3 bg-white py-[2rem] px-[1.2rem] rounded-lg">
         {/* left side */}
         <div className="relative w-[46%] ">
-          <div className="pdp-img-cont border flex gap-3 sticky top-2">
-            <div className="small-img-cont w-[94px] h-[425px] border 
+          <div className="pdp-img-cont flex gap-4 sticky top-2">
+            <div className="small-img-cont w-[94px] h-[425px] 
             ">
               {imageData.map((imageSrc: any, i: number) => {
+                const isSelected = i === selectedIndex;
                 return (
                   <div
-                    className="small-img w-full h-[94px] mb-[17px] border rounded cursor-pointer"
+                  className={`small-img w-full h-[94px] mb-[17px] rounded cursor-pointer ${isSelected ? ' border-2 border-blue-500' : ''}`}
                     key={i}
                   >
                     <Image
                       src={imageSrc}
                       alt="product img"
-                      onClick={() => handleImageClick(imageSrc)}
+                      onClick={() => handleImageClick(imageSrc,i)}
                       className="h-full w-full"
                     />
                   </div>
@@ -56,7 +59,6 @@ const SingleProduct: React.FC = ({ params }: any) => {
               {/* <div className="w-full h-[94px] mb-[17px] border border-green-600 rounded"></div>
               <div className="w-full h-[94px] mb-[17px] border border-green-600 rounded"></div>
               <div className="w-full h-[94px] mb-[17px] border border-green-600 rounded"></div> */}
-
             </div>
             <div className="pdp-selected-img w-[424px] h-[425px] border rounded-lg">
               {selectedImage && (
