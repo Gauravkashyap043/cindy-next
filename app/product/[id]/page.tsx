@@ -8,15 +8,15 @@ import {
   BsFillCheckCircleFill,
 } from "react-icons/bs";
 import Image from "next/image";
-// import { imageData } from "@/utils/data";
 import headphone1 from "../../../assets/images/headphone1.png";
 import headphone2 from "../../../assets/images/headphone2.png";
 import headphone3 from "../../../assets/images/headphone3.png";
 import headphone4 from "../../../assets/images/headphone4.png";
 import styles from "./productDetails.module.css";
 import Link from "next/link";
-// const imageData: any = [first, second, third, forth];
 const imageData: any = [headphone1, headphone2, headphone3, headphone4];
+import upload from "../../../assets/images/upload.png";
+import { FaHeart } from "react-icons/fa";
 
 const SingleProduct: React.FC = ({ params }: any) => {
   const [selectedImage, setSelectedImage] = useState<any>(imageData[0]);
@@ -95,6 +95,15 @@ const SingleProduct: React.FC = ({ params }: any) => {
               </div>
             </div>
             <div className="pdp-selected-img w-[424px] h-[425px] border rounded-lg relative">
+              <Image
+                src={upload}
+                alt=""
+                className="absolute h-[29px] w-[29px] left-[15px] top-[11px] cursor-pointer"
+                onClick={() => alert("click on product card")}
+              />
+              <div className="pdp-favourite absolute h-[35px] w-[35px] rounded-full right-[15px] top-[11px] cursor-pointer flex justify-center items-center shadow-xl">
+                <FaHeart color="red" size={18} className="" />
+              </div>
               <div
                 className="pdp-prev w-[30px] h-[28px] justify-center items-center rounded-r-lg border bg-[#00000025] hidden"
                 onClick={handlePrevious}
@@ -123,6 +132,12 @@ const SingleProduct: React.FC = ({ params }: any) => {
         </div>
         {/* right side */}
         <div className="w-[53%] px-2">
+          <div className="pdp-mobile-favourite hidden w-full">
+            <div className="flex justify-end items-center gap-2 w-full mb-1 mt-[-1%]">
+              <FaHeart color="red" size={15} className="" />
+              <p className="text-[#456EFF]">Favorite</p>
+            </div>
+          </div>
           <p className="pdp-product-name font-[700] text-[22px]">
             Logitech G435 Lightspeed and Bluetooth Wireless Over Ear Gaming
             Headphones - Lightweight with Dual mics, 18h Battery, Compatible
