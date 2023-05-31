@@ -25,8 +25,11 @@ export default function HomePage() {
   if (!data)
     return (
       <>
-        <div className="flex justify-center items-center w-full h-screen">
-          <h3 className="animate-bounce">Hold your horses! Our products are getting their fashionably late entrance😉...</h3>
+        <div className="flex justify-center items-center w-full h-screen text-center">
+          <h3 className="animate-bounce text-center">
+            Hold your horses! Our products are getting their fashionably late
+            entrance😉...
+          </h3>
         </div>
       </>
     );

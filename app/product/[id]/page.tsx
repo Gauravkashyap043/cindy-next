@@ -2,7 +2,11 @@
 import { Tabs, TabContent } from "@/src/components/Tabs/Tabs";
 import React, { useEffect, useState } from "react";
 import { BiDotsVertical, BiLike, BiDislike } from "react-icons/bi";
-import { BsFillCheckCircleFill } from "react-icons/bs";
+import {
+  BsArrowLeft,
+  BsArrowRight,
+  BsFillCheckCircleFill,
+} from "react-icons/bs";
 import Image from "next/image";
 // import { imageData } from "@/utils/data";
 import headphone1 from "../../../assets/images/headphone1.png";
@@ -22,13 +26,27 @@ const SingleProduct: React.FC = ({ params }: any) => {
     setSelectedIndex(index);
   };
 
+  const handlePrevious = () => {
+    const newIndex = selectedIndex - 1;
+    if (newIndex >= 0) {
+      setSelectedImage(imageData[newIndex]);
+      setSelectedIndex(newIndex);
+    }
+  };
+
+  const handleNext = () => {
+    const newIndex = selectedIndex + 1;
+    if (newIndex < imageData.length) {
+      setSelectedImage(imageData[newIndex]);
+      setSelectedIndex(newIndex);
+    }
+  };
 
   return (
     <div className="m-auto  main-container">
       <div className="pdp-breadcrumb mt-[11px] flex gap-1 mb-[49px] text-gray-500">
         <Link href={"/"}>
-        
-        <p className="hover:text-blue-500 cursor-pointer">Home</p>
+          <p className="hover:text-blue-500 cursor-pointer">Home</p>
         </Link>
         <p>{">"}</p>
         <p>Product Details</p>
@@ -37,30 +55,62 @@ const SingleProduct: React.FC = ({ params }: any) => {
         {/* left side */}
         <div className="relative w-[46%] ">
           <div className="pdp-img-cont flex gap-4 sticky top-2">
-            <div className="small-img-cont w-[94px] h-[425px] 
-            ">
+            <div
+              className="small-img-cont w-[94px] h-[425px] 
+            "
+            >
               {imageData.map((imageSrc: any, i: number) => {
                 const isSelected = i === selectedIndex;
                 return (
-                  <div
-                  className={`small-img w-full h-[94px] mb-[17px] rounded cursor-pointer ${isSelected ? ' border-2 border-blue-500' : ''}`}
-                    key={i}
-                  >
-                    <Image
-                      src={imageSrc}
-                      alt="product img"
-                      onClick={() => handleImageClick(imageSrc,i)}
-                      className="h-full w-full"
-                    />
-                  </div>
+                  <>
+                    <div
+                      className={`small-img w-full h-[94px] mb-[17px] rounded cursor-pointer ${
+                        isSelected ? " border-2 border-blue-500" : ""
+                      }`}
+                      key={i}
+                    >
+                      <Image
+                        src={imageSrc}
+                        alt="product img"
+                        onClick={() => handleImageClick(imageSrc, i)}
+                        className="h-full w-full"
+                      />
+                    </div>
+                  </>
                 );
               })}
-
-              {/* <div className="w-full h-[94px] mb-[17px] border border-green-600 rounded"></div>
-              <div className="w-full h-[94px] mb-[17px] border border-green-600 rounded"></div>
-              <div className="w-full h-[94px] mb-[17px] border border-green-600 rounded"></div> */}
             </div>
-            <div className="pdp-selected-img w-[424px] h-[425px] border rounded-lg">
+            <div className="carousel-points-div hidden">
+              <div className="carousel-points">
+                {imageData.map((_: any, i: any) => (
+                  <div
+                    className={`point ${
+                      i === selectedIndex
+                        ? "active-point ease-out duration-300"
+                        : ""
+                    }`}
+                    key={i}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="pdp-selected-img w-[424px] h-[425px] border rounded-lg relative">
+              <div
+                className="pdp-prev w-[30px] h-[28px] justify-center items-center rounded-r-lg border bg-[#00000025] hidden"
+                onClick={handlePrevious}
+              >
+                <div className="w-full h-full flex justify-center items-center">
+                  <BsArrowLeft color="white" className="font-bold" />
+                </div>
+              </div>
+              <div
+                className="pdp-next w-[30px] h-[28px] justify-center items-center rounded-l-lg border bg-[#00000025] hidden"
+                onClick={handleNext}
+              >
+                <div className="w-full h-full flex justify-center items-center">
+                  <BsArrowRight color="white" className="font-bold" />
+                </div>
+              </div>
               {selectedImage && (
                 <Image
                   src={selectedImage}
@@ -98,52 +148,6 @@ const SingleProduct: React.FC = ({ params }: any) => {
             </div>
             <div className="text-[#878787]">2,131 ratings and 186 reviews</div>
           </div>
-          {/* <div className="w-full flex mt-6 justify-between items-center">
-            <p className="text-[13px] font-bold">Offer Available</p>
-            <button className="bg-white text-blue-600 font-bold text-[12px] border py-[11px] md:py-[8px] sm:py-[7px] px-[13px] rounded-full">
-              View all Offer
-            </button>
-          </div> */}
-
-          {/* <div className="w-full flex items-center justify-between mt-2">
-            <div className="w-[154px] h-[118px] px-[10px] py-[8px] border-2 rounded">
-              <h4 className="">No cost EMI</h4>
-              <div className="h-[55px] w-full text-[10px] leading-[18px] text-[#0F1111]">
-                Upto $ 292.46 EMI interest savings on Amazon Pay ICICI…
-              </div>
-              <div className="w-[79px] h-[25px] rounded-full border border-green-500 mt-1 text-center">
-                ebay
-              </div>
-            </div>
-            <div className="w-[154px] h-[118px] px-[10px] py-[8px] border-2 rounded">
-              <h4 className="">No cost EMI</h4>
-              <div className="h-[55px] w-full text-[10px] leading-[18px] text-[#0F1111]">
-                Upto $ 292.46 EMI interest savings on Amazon Pay ICICI…
-              </div>
-              <div className="w-[79px] h-[25px] rounded-full border border-green-500 mt-1 text-center">
-                amazon
-              </div>
-            </div>
-            <div className="w-[154px] h-[118px] px-[10px] py-[8px] border-2 rounded">
-              <h4 className="">No cost EMI</h4>
-              <div className="h-[55px] w-full text-[10px] leading-[18px] text-[#0F1111]">
-                Upto $ 292.46 EMI interest savings on Amazon Pay ICICI…
-              </div>
-              <div className="w-[79px] h-[25px] rounded-full border border-green-500 mt-1 text-center">
-                amazon
-              </div>
-            </div>
-            <div className="w-[154px] h-[118px] px-[10px] py-[8px] border-2 rounded">
-              <h4 className="">No cost EMI</h4>
-              <div className="h-[55px] w-full text-[10px] leading-[18px]  mt-1 text-[#0F1111]">
-                Upto $ 292.46 EMI interest savings on Amazon Pay ICICI…
-              </div>
-              <div className="w-[79px] h-[25px] rounded-full border border-green-500 text-center">
-                amazon
-              </div>
-            </div>
-          </div> */}
-
           <h4 className="my-3">Available On</h4>
           <div className="mt-3">
             <div className="other-affiliate w-full flex justify-between items-center bg-[#f9f9f9] pr-3 rounded-full shadow-md mt-3">
@@ -155,39 +159,13 @@ const SingleProduct: React.FC = ({ params }: any) => {
                 <div className="w-[18px] h-[18px] rounded-full bg-[#1AC8FF]"></div>
                 <div className="w-[18px] h-[18px] rounded-full bg-[#FF1A95]"></div>
               </div>
-              <p className="pdp-price font-[500] text-[28px] text-green-600">$ 49.9</p>
+              <p className="pdp-price font-[500] text-[28px] text-green-600">
+                $ 49.9
+              </p>
               <button className="bg-[#0039F0] w-[75px] h-[26.5px] text-white text-[14px] font-[500] rounded-full">
                 Buy Now
               </button>
             </div>
-            {/* <div className="w-full flex justify-between items-center bg-[#f9f9f9] pr-3 rounded-full shadow-md mt-3">
-              <div className="w-[132px] h-[42px] rounded-full border flex justify-center items-center">
-                Amazon
-              </div>
-              <div className="w-[132px] h-[42px] flex justify-center gap-2 items-center">
-                <div className="w-[18px] h-[18px] rounded-full bg-[#FF2E2E]"></div>
-                <div className="w-[18px] h-[18px] rounded-full bg-[#1AC8FF]"></div>
-                <div className="w-[18px] h-[18px] rounded-full bg-[#FF1A95]"></div>
-              </div>
-              <p className="font-[500] text-[28px] text-green-600">$ 49.9</p>
-              <button className="bg-[#0039F0] w-[75px] h-[26.5px] text-white text-[14px] font-[500] rounded-full">
-                Buy Now
-              </button>
-            </div>
-            <div className="w-full flex justify-between items-center bg-[#f9f9f9] pr-3 rounded-full shadow-md mt-3">
-              <div className="w-[132px] h-[42px] rounded-full border flex justify-center items-center">
-                Amazon
-              </div>
-              <div className="w-[132px] h-[42px] flex justify-center gap-2 items-center">
-                <div className="w-[18px] h-[18px] rounded-full bg-[#FF2E2E]"></div>
-                <div className="w-[18px] h-[18px] rounded-full bg-[#1AC8FF]"></div>
-                <div className="w-[18px] h-[18px] rounded-full bg-[#FF1A95]"></div>
-              </div>
-              <p className="font-[500] text-[28px] text-green-600">$ 49.9</p>
-              <button className="bg-[#0039F0] w-[75px] h-[26.5px] text-white text-[14px] font-[500] rounded-full">
-                Buy Now
-              </button>
-            </div> */}
           </div>
           <div>
             <Tabs>
