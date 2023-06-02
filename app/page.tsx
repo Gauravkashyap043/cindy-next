@@ -17,7 +17,7 @@ export default function HomePage() {
   const [pillActive, setPillActive] = useState<number>(pillButtonData[0].id);
   const [pillCategory, setPillCategory] = useState<string>("");
   const { data, error } = useSWR<Product[]>(
-    "https://fakestoreapi.com/products",
+    "http://localhost:3000/v1/serp-api/products/",
     fetcher
   );
 
@@ -34,7 +34,7 @@ export default function HomePage() {
       </>
     );
 
-  const filteredProducts = data.filter((product: Product) => {
+  const filteredProducts = data.filter((product: any) => {
     if (pillActive == 1 || pillCategory === "All") {
       return true; // Show all products
     } else {
@@ -73,9 +73,12 @@ export default function HomePage() {
               </div>
             </div>
             <div className="product-card-div">
-              {filteredProducts.map((product: Product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
+              {data.map((product: Product) => {
+                if (product.dump?.error) {
+                  return null; 
+                }
+                return <ProductCard key={product.id} product={product} />;
+              })}
             </div>
           </div>
         </TabContent>

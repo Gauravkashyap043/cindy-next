@@ -7,6 +7,7 @@ import upload from "../../../assets/images/upload.png";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import StarRating from "../starRating/StarRating";
 
 interface ProductCardProps {
   product: Product;
@@ -25,26 +26,33 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         onClick={() => alert("click on product card")}
       />
       <Link href={`/product/${product.id}`}>
-      <div
-        className="product-card-img  m-auto cursor-pointer"
-        // onClick={() => alert("clicked on product image")}
-      >
-        <img src={product.image} alt="" className="h-full w-full" />
-      </div>
+        <div className="product-card-img  m-auto cursor-pointer">
+          <img
+            src={product.dump.product_results?.media[0].link}
+            alt=""
+            className="h-full w-full"
+          />
+        </div>
       </Link>
-      
+
       <div className="w-[94%] m-auto  mt-[10px]">
-        <div className="price-cont w-full h-[22px] flex justify-between items-center text-[16px] font-[500] text-[#388E3C]">
+        <div className="price-cont w-full h-[22px] flex justify-between items-center text-[16px] font-[500]">
           <div className="flex justify-center items-center gap-2">
-            <p>${product.price}</p>
-            <div className="border rounded-full px-2 h-[14px] text-[10px] flex justify-center items-center cursor-pointer">
+            <p className="text-[#388E3C]">{product.prices[0]}</p>
+            <div className="border rounded-full px-2 h-[14px] text-[10px] flex justify-center items-center cursor-pointer text-[#388E3C]">
               ebay
             </div>
           </div>
-          <p className="text-[10px] rating-star">⭐⭐⭐⭐⭐</p>
+          {/* <p className="text-[10px] rating-star">⭐⭐⭐⭐⭐</p> */}
+          <div className="text-red">
+            <StarRating rating={product.rating} /> 
+          </div>
         </div>
         <div className="w-[96%]">
-          <p className="product-name truncate text-[15px] text-[#3E4042]">
+          <p
+            className="product-name truncate text-[15px] text-[#3E4042]"
+            onClick={() => alert(`${product.id}`)}
+          >
             {product.title}
           </p>
         </div>

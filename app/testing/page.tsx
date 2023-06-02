@@ -6,19 +6,7 @@ const Page: React.FC = () => {
   const [pillActive, setPillActive] = useState([pillButtonData[0].id]);
   const divRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const divElement = divRef.current;
-    if (divElement && divElement.scrollWidth > divElement.clientWidth) {
-      // Text overflows, apply truncation logic
-      divElement.title = divElement.innerText; // Optional: Show full text on hover
-
-      while (divElement.scrollWidth > divElement.clientWidth) {
-        divElement.innerText = divElement.innerText.slice(0, -1);
-      }
-
-      divElement.innerText += "...";
-    }
-  }, []);
+  
 
   return (
     <div className="overflow-auto">
@@ -42,10 +30,17 @@ const Page: React.FC = () => {
           );
         })}
       </div>
-      <div  className=" w-[200px] border truncate">
+      <div className=" w-[200px] border truncate">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis nisi
         error dolorem molestiae suscipit. Sit quae suscipit impedit iure et
         architecto totam optio tenetur porro debitis labore, fugiat, quos earum.
+      </div>
+      <div className="text-center">
+        <button className="w-[150px] h-[50px] bg-black text-white rounded hover:bg-gray-400 hover:text-black"
+        onClick={() => alert("click")}
+        >
+          Sign in with google
+        </button>
       </div>
     </div>
   );
