@@ -164,7 +164,7 @@ export const pillButtonData : ipillsButtonData[] = [
     {id:3,name:"jewelery"},
     {id:4,name:"men's clothing"},
     {id:5,name:"women's clothing"},
-    {id:6,name:"Sports"},
+    {id:6,name:"smartphones"},
     {id:7,name:"Clothing"},
     {id:8,name:"Grooming"},
     {id:9,name:"Kitchen"},

@@ -17,7 +17,7 @@ export default function HomePage() {
   const [pillActive, setPillActive] = useState<number>(pillButtonData[0].id);
   const [pillCategory, setPillCategory] = useState<string>("");
   const { data, error } = useSWR<Product[]>(
-    "http://localhost:3000/v1/serp-api/products/",
+    "https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products/",
     fetcher
   );
 

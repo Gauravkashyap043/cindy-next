@@ -1,12 +1,16 @@
-// type Product = {
-//     id:number;
-//     title:string;
-//     prices:number;
-//     description:string;
-//     category:string;
-//     dump:{product_result}
-//     rating: {rate:number; count:number}
-// }
+type ProductPractice = {
+    id: number;
+    title: string;
+    description?: string;
+    price?: number;
+    discountPercentage?: number;
+    rating: number;
+    stock?: number;
+    brand?: string;
+    category?: string;
+    thumbnail?: string;
+    images?: string[];
+}
 
 interface TypicalPrices {
     create: {
