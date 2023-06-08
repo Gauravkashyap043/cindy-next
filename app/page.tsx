@@ -16,8 +16,10 @@ const fetcher = async (url: string) => {
 export default function HomePage() {
   const [pillActive, setPillActive] = useState<number>(pillButtonData[0].id);
   const [pillCategory, setPillCategory] = useState<string>("");
+  const [limit,setLimit] = useState<number>(50)
   const { data, error } = useSWR<Product[]>(
-    "https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products/",
+    `https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products?page=1&limit=${limit}`,
+    // `http://localhost:3000/v1/serp-api/products?page=1&limit=${limit}`,
     fetcher
   );
 
@@ -100,15 +102,13 @@ export default function HomePage() {
       </Tabs>
 
       <div className="w-full border  h-[136px] mt-[30px]">
-        <p className="text-[#868686] text-center">
+        {/* <p className="text-[#868686] text-center">
           You have viewed 72 of 1000 products
-        </p>
+        </p> */}
         <div className="w-full">
           <button
             className="h-[60px] bg-white text-[#575757] w-full mt-[50px]"
-            onClick={() => {
-              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-            }}
+            onClick={() => setLimit(limit+50)}
           >
             Load More
           </button>
