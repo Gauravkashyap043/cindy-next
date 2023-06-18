@@ -60,15 +60,15 @@ const SingleProduct: React.FC = ({ params }: any) => {
   const handlePrevious = () => {
     const newIndex = selectedIndex - 1;
     if (newIndex >= 0) {
-      setSelectedImage(imageData[newIndex]);
+      setSelectedImage(data.dump.product_results.media[newIndex]);
       setSelectedIndex(newIndex);
     }
   };
 
   const handleNext = () => {
     const newIndex = selectedIndex + 1;
-    if (newIndex < imageData.length) {
-      setSelectedImage(imageData[newIndex]);
+    if (newIndex < data.dump.product_results.media.length) {
+      setSelectedImage(data.dump.product_results.media[newIndex]);
       setSelectedIndex(newIndex);
     }
   };
@@ -91,32 +91,34 @@ const SingleProduct: React.FC = ({ params }: any) => {
                 className="small-img-cont w-[94px] h-[425px] overflow-auto pr-1
             "
               >
-                {data.dump.product_results.media.map(
-                  (imageSrc: any, i: number) => {
-                    const isSelected = i === selectedIndex;
-                    return (
-                      <>
-                        <div
-                          className={`small-img w-full h-[94px] mb-[17px] rounded cursor-pointer border ${
-                            isSelected ? " border-2 border-blue-500" : ""
-                          }`}
-                          key={i}
-                        >
-                          <img
-                            src={imageSrc.link}
-                            alt="product img"
-                            onClick={() => handleImageClick(imageSrc, i)}
-                            className="h-full w-full"
-                          />
-                        </div>
-                      </>
-                    );
-                  }
-                )}
+                <div className="small-img-div flex flex-col h-full">
+                  {data.dump.product_results.media.map(
+                    (imageSrc: any, i: number) => {
+                      const isSelected = i === selectedIndex;
+                      return (
+                        <>
+                          <div
+                            className={`small-img w-full h-[94px] mb-[17px] rounded cursor-pointer border ${
+                              isSelected ? " border-2 border-blue-500" : ""
+                            }`}
+                            key={i}
+                          >
+                            <img
+                              src={imageSrc.link}
+                              alt="product img"
+                              onClick={() => handleImageClick(imageSrc, i)}
+                              className="h-full w-full"
+                            />
+                          </div>
+                        </>
+                      );
+                    }
+                  )}
+                </div>
               </div>
               <div className="carousel-points-div hidden">
                 <div className="carousel-points">
-                  {imageData.map((_: any, i: any) => (
+                  {data.dump.product_results.media.map((_: any, i: any) => (
                     <div
                       className={`point ${
                         i === selectedIndex
@@ -211,7 +213,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
                   <div className="w-[18px] h-[18px] rounded-full bg-[#FF1A95]"></div>
                 </div>
                 <p className="pdp-price font-[500] text-[28px] text-green-600">
-                  {data.prices}
+                  {data.prices[0]}
                 </p>
                 <button className="bg-[#0039F0] w-[75px] h-[26.5px] text-white text-[14px] font-[500] rounded-full">
                   Buy Now

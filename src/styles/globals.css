@@ -1492,11 +1492,13 @@
     display: flex;
     width: 100%;
     height: 90px;
-    justify-content: space-between;
+    padding-bottom: 0.25rem;
   }
   .small-img {
     height: 100%;
     width: 90px;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
   }
   .pdp-selected-img {
     width: 100%;
@@ -1511,6 +1513,21 @@
   .pdp-tab-btn {
     height: 30px;
   }
+  .carousel-points-div {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .pdp-prev {
+    display: block;
+    position: absolute;
+    top: 49%;
+  }
+  .pdp-next {
+    display: block;
+    position: absolute;
+    top: 49%;
+    right: 0;
+  }
 }
 
 /* @media (max-width: 505px) {
@@ -1523,17 +1540,23 @@
 @media (max-width: 415px) {
   .pdp-selected-img {
     width: 100%;
-    height: 320px;
+    height: 340px;
   }
   .small-img-cont {
     display: flex;
     width: 100%;
-    height: 80px;
-    justify-content: space-between;
+    height: 85px;
+    padding-bottom: 0.25rem;
   }
   .small-img {
     height: 100%;
     width: 80px;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .small-img-div {
+    display: flex;
+    flex-direction: row;
   }
   .carousel-points-div {
     display: block;
@@ -1558,6 +1581,15 @@
   }
 }
 
+@media (max-width: 346px) {
+  .pdp-selected-img {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+
+
 .carousel-points {
   display: flex;
   justify-content: center;
@@ -1578,3 +1610,4 @@
   width: 24px;
   border-radius: 10px;
 }
+
