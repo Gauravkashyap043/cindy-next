@@ -18,8 +18,8 @@ export default function HomePage() {
   const [pillCategory, setPillCategory] = useState<string>("");
   const [limit,setLimit] = useState<number>(50)
   const { data, error } = useSWR<Product[]>(
+    // `https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products?page=1&limit=${limit}`,
     `https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products?page=1&limit=${limit}`,
-    // `http://localhost:3000/v1/serp-api/products?page=1&limit=${limit}`,
     fetcher
   );
 

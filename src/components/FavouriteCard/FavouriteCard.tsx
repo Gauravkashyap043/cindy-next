@@ -1,8 +1,6 @@
 'use client';
 import React, { useState } from "react";
-import { FaShareAlt, FaHeart,FaRegHeart } from "react-icons/fa";
-import iphone from "../../../assets/images/iphone.png";
-import printer from "../../../assets/images/printer.png";
+import { FaHeart,FaRegHeart } from "react-icons/fa";
 import Image from "next/image";
 import upload from "../../../assets/images/upload.png";
 interface favouriteCard {

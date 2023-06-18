@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="absolute h-[29px] w-[29px] right-[15px] top-[11px] cursor-pointer"
         onClick={() => alert("click on product card")}
       />
-      <Link href={`/product/${product.id}`}>
+      <Link href={`/product/${product.productID}`}>
         <div className="product-card-img  m-auto cursor-pointer">
           <img
             src={product.dump.product_results?.media[0].link}
