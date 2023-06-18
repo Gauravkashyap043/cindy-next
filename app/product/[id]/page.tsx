@@ -248,6 +248,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
                         thanks to G435s 18 hours of battery life, allowing you
                         to keep playing, talking to friends, and listening to
                         music all day
+                        
                       </li>
                     </ul>
                   </div>
