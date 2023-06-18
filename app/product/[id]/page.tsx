@@ -25,16 +25,21 @@ const fetcher = async (url: string) => {
   return response.data;
 };
 const SingleProduct: React.FC = ({ params }: any) => {
-  const [selectedImage, setSelectedImage] = useState<any>(imageData[0]);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const { data, error } = useSWR<Product>(
     // `https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products/${params}`,
     `https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products/${params.id}`,
     fetcher
   );
+  const [selectedImage, setSelectedImage] = useState<any>(
+    data?.dump?.product_results?.media[0]
+  );
+  useEffect(() => {
+    setSelectedImage(data?.dump?.product_results?.media[0]);
+  }, [data]);
 
   if (error) return <p>Loading failed...</p>;
-  if (!data)
+  if (!data) {
     return (
       <>
         <div className="flex justify-center items-center w-full h-screen text-center">
@@ -45,8 +50,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
         </div>
       </>
     );
-
-  console.log(typeof data);
+  }
 
   const handleImageClick = (imageSrc: any, index: number) => {
     setSelectedImage(imageSrc);
@@ -93,7 +97,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
                     return (
                       <>
                         <div
-                          className={`small-img w-full h-[94px] mb-[17px] rounded cursor-pointer ${
+                          className={`small-img w-full h-[94px] mb-[17px] rounded cursor-pointer border ${
                             isSelected ? " border-2 border-blue-500" : ""
                           }`}
                           key={i}
@@ -175,7 +179,9 @@ const SingleProduct: React.FC = ({ params }: any) => {
               Special price
             </p>
             <div className="flex gap-3 items-center">
-              <p className="pdp-price font-[500] text-[28px]">{data.prices[0]}</p>
+              <p className="pdp-price font-[500] text-[28px]">
+                {data.prices[0]}
+              </p>
               <p className="text-[16px] text-[#878787]">
                 <span className="line-through">$1,449</span>{" "}
                 <span className="font-bold text-green-600 ml-1">66% off</span>
@@ -248,7 +254,6 @@ const SingleProduct: React.FC = ({ params }: any) => {
                         thanks to G435s 18 hours of battery life, allowing you
                         to keep playing, talking to friends, and listening to
                         music all day
-                        
                       </li>
                     </ul>
                   </div>
