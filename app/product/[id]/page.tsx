@@ -202,24 +202,31 @@ const SingleProduct: React.FC = ({ params }: any) => {
               </div>
             </div>
             <h4 className="my-3">Available On</h4>
-            <div className="mt-3">
-              <div className="other-affiliate w-full flex justify-between items-center bg-[#f9f9f9] pr-3 rounded-full shadow-md mt-3">
-                <div className="affiliate-logo w-[132px] h-[42px] rounded-full border flex justify-center items-center">
-                  Amazon
+            {data?.dump.sellers_results?.online_sellers.map((items, i) => {
+              return (
+                <div className="mt-3" key={i}>
+                  <div className="other-affiliate w-full flex justify-between items-center bg-[#f9f9f9] pr-3 rounded-full shadow-md mt-3">
+                    <div className="affiliate-logo w-[132px] h-[42px] rounded-full border flex justify-center items-center">
+                      {items.name}
+                    </div>
+                    <div className="colorful-dots h-[42px] flex justify-center gap-2 items-center">
+                      <div className="w-[18px] h-[18px] rounded-full bg-[#FF2E2E]"></div>
+                      <div className="w-[18px] h-[18px] rounded-full bg-[#1AC8FF]"></div>
+                      <div className="w-[18px] h-[18px] rounded-full bg-[#FF1A95]"></div>
+                    </div>
+                    <p className="pdp-price font-[500] text-[28px] text-green-600">
+                      {items.base_price}
+                    </p>
+                    <Link href={items.link} >
+                      <button className="bg-[#0039F0] w-[75px] h-[26.5px] text-white text-[14px] font-[500] rounded-full">
+                        Buy Now
+                      </button>
+                    </Link>
+                  </div>
                 </div>
-                <div className="colorful-dots h-[42px] flex justify-center gap-2 items-center">
-                  <div className="w-[18px] h-[18px] rounded-full bg-[#FF2E2E]"></div>
-                  <div className="w-[18px] h-[18px] rounded-full bg-[#1AC8FF]"></div>
-                  <div className="w-[18px] h-[18px] rounded-full bg-[#FF1A95]"></div>
-                </div>
-                <p className="pdp-price font-[500] text-[28px] text-green-600">
-                  {data.prices[0]}
-                </p>
-                <button className="bg-[#0039F0] w-[75px] h-[26.5px] text-white text-[14px] font-[500] rounded-full">
-                  Buy Now
-                </button>
-              </div>
-            </div>
+              );
+            })}
+
             <div>
               <Tabs>
                 <TabContent label="Product Details">
