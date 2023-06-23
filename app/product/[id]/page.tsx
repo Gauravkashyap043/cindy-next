@@ -253,7 +253,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
                     <ul className="pdp-product-details list-disc ml-5 border-transparent">
                       {data.highlights.length
                         ? data.highlights.map((items, i) => {
-                            return <li>{items}</li>;
+                            return <li key={i}>{items}</li>;
                           })
                         : ""}
                     </ul>
@@ -265,7 +265,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
                 <TabContent label="Reviews">
                   {data.dump?.reviews_results?.reviews.map((items, i) => {
                     return (
-                      <div className="w-[95%] mt-1 py-2 mb-2">
+                      <div className="w-[95%] mt-1 py-2 mb-2" key={i}>
                         <div>
                           <div className="flex items-center gap-1">
                             <div className="bg-green-600 text-white w-[34px] h-[17px]  flex justify-center items-center rounded text-[12px] font-[500] p-1">
