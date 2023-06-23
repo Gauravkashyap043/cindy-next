@@ -26,6 +26,7 @@ const fetcher = async (url: string) => {
 };
 const SingleProduct: React.FC = ({ params }: any) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+
   const { data, error } = useSWR<Product>(
     // `https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products/${params}`,
     `https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products/${params.id}`,
@@ -184,30 +185,42 @@ const SingleProduct: React.FC = ({ params }: any) => {
               <p className="pdp-price font-[500] text-[28px]">
                 {data.prices[0]}
               </p>
-              <p className="text-[16px] text-[#878787]">
+              {/* <p className="text-[16px] text-[#878787]">
                 <span className="line-through">$1,449</span>{" "}
                 <span className="font-bold text-green-600 ml-1">66% off</span>
-              </p>
-              <div className="w-[79px] h-[25px] rounded-full border border-green-500 text-center">
-                ebay
-              </div>
+              </p> */}
+              <Link
+                href={data?.dump.sellers_results?.online_sellers[0].link}
+                target="_blank"
+              >
+                <div className="font-bold cursor-pointer bg-green-600 text-white rounded-full border px-3 py-1 pb-2 border-green-500 flex justify-center items-center">
+                  {
+                    data?.dump.sellers_results?.online_sellers[0].name.split(
+                      "-"
+                    )[0]
+                  }
+                </div>
+              </Link>
             </div>
             <div className="flex text-[10px] items-center gap-1 mt-[10px]">
               <div className="bg-green-600 text-white w-[34px] h-[17px]  flex justify-center items-center rounded ">
                 <span>{data.rating}</span>
                 <span>⭐</span>
               </div>
-              <div className="text-[#878787]">
+              <p>Rating</p>
+              {/* <div className="text-[#878787]">
                 2,131 ratings and 186 reviews
-              </div>
+              </div> */}
             </div>
             <h4 className="my-3">Available On</h4>
             {data?.dump.sellers_results?.online_sellers.map((items, i) => {
               return (
                 <div className="mt-3" key={i}>
                   <div className="other-affiliate w-full flex justify-between items-center bg-[#f9f9f9] pr-3 rounded-full shadow-md mt-3">
-                    <div className="affiliate-logo w-[132px] h-[42px] rounded-full border flex justify-center items-center">
-                      {items.name}
+                    <div className="min-w-[150px]">
+                      <div className="affiliate-logo px-3 font-bold h-[42px] rounded-full border flex justify-center items-center">
+                        {items.name.split("-")[0]}
+                      </div>
                     </div>
                     <div className="colorful-dots h-[42px] flex justify-center gap-2 items-center">
                       <div className="w-[18px] h-[18px] rounded-full bg-[#FF2E2E]"></div>
@@ -217,7 +230,7 @@ const SingleProduct: React.FC = ({ params }: any) => {
                     <p className="pdp-price font-[500] text-[28px] text-green-600">
                       {items.base_price}
                     </p>
-                    <Link href={items.link} >
+                    <Link href={items.link}>
                       <button className="bg-[#0039F0] w-[75px] h-[26.5px] text-white text-[14px] font-[500] rounded-full">
                         Buy Now
                       </button>
@@ -234,150 +247,48 @@ const SingleProduct: React.FC = ({ params }: any) => {
                     <p className="text-[13px] font-bold mb-6">
                       About this item
                     </p>
+                    {data.description && (
+                      <div className="font-bold">{data.description}</div>
+                    )}
                     <ul className="pdp-product-details list-disc ml-5 border-transparent">
-                      <li>
-                        Versatile: Logitech G435 is the first headset with
-                        LIGHTSPEED wireless and low latency Bluetooth
-                        connectivity, providing more freedom of play on PC,
-                        smartphones, Playstation gaming devices{" "}
-                      </li>
-                      <li>
-                        Lightweight: With a lightweight construction, this
-                        wireless gaming headset weighs only 5.8 oz (165 g),
-                        making it comfortable to wear all day long{" "}
-                      </li>
-                      <li>
-                        uperior voice quality: Be heard loud and clear thanks to
-                        the built-in dual beamforming microphones that eliminate
-                        the need for a mic arm and reduce background noise
-                      </li>
-                      <li>
-                        Immersive sound: This cool and colorful headset delivers
-                        carefully balanced, high-fidelity audio with 40 mm
-                        drivers; compatibility with Dolby Atmos, Tempest 3D
-                        AudioTech and Windows Sonic for a true surround sound
-                        experience{" "}
-                      </li>
-                      <li>
-                        Long battery life: No need to stop the game to recharge
-                        thanks to G435s 18 hours of battery life, allowing you
-                        to keep playing, talking to friends, and listening to
-                        music all day
-                      </li>
+                      {data.highlights.length
+                        ? data.highlights.map((items, i) => {
+                            return <li>{items}</li>;
+                          })
+                        : ""}
                     </ul>
                   </div>
                 </TabContent>
                 <TabContent label="Specification">
-                  <div className="w-[95%] mt-1 py-2">
-                    <div className="flex items-center text-[13px] mt-3 gap-10">
-                      <div className="w-[150px] font-bold">
-                        <p>Brand</p>
-                      </div>
-                      <div>
-                        <p>Logitech G</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center text-[13px] mt-3 gap-10">
-                      <div className="w-[150px] font-bold">
-                        <p>Model name</p>
-                      </div>
-                      <div>
-                        <p>G432</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center text-[13px] mt-3 gap-10">
-                      <div className="w-[150px] font-bold">
-                        <p>Color</p>
-                      </div>
-                      <div>
-                        <p>Pale Blue</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center text-[13px] mt-3 gap-10">
-                      <div className="w-[150px] font-bold">
-                        <p>Headphone from factor</p>
-                      </div>
-                      <div>
-                        <p>Over Ear</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center text-[13px] mt-3 gap-10">
-                      <div className="w-[150px] font-bold">
-                        <p>Connector Type</p>
-                      </div>
-                      <div>
-                        <p>wireless</p>
-                      </div>
-                    </div>
-                  </div>
+                  <div className="w-[95%] mt-1 py-2 min-h-[300px] border border-transparent"></div>
                 </TabContent>
                 <TabContent label="Reviews">
-                  <div className="w-[95%] mt-1 py-2 mb-2">
-                    <div>
-                      <div className="bg-green-600 text-white w-[34px] h-[17px]  flex justify-center items-center rounded text-[12px] font-[500] p-1">
-                        <span>5</span>
-                        <span>⭐</span>
-                      </div>
-                      <p className="mt-[10px] text-[13px] font-bold">
-                        More than perfect
-                      </p>
-                      <div className="mt-[10px]">
-                        <div className="flex gap-3 text-[12px] text-gray-500">
-                          <span>John Jackson</span>
-                          <span>7 Month ago</span>
-                        </div>
-                        <div className="flex justify-between text-[12px] text-gray-500">
+                  {data.dump?.reviews_results?.reviews.map((items, i) => {
+                    return (
+                      <div className="w-[95%] mt-1 py-2 mb-2">
+                        <div>
                           <div className="flex items-center gap-1">
-                            <BsFillCheckCircleFill />
-                            Certified Buyer
+                            <div className="bg-green-600 text-white w-[34px] h-[17px]  flex justify-center items-center rounded text-[12px] font-[500] p-1">
+                              <span>{items.rating}</span>
+                              <span>⭐</span>
+                            </div>
+                            <p>Rating</p>
                           </div>
-                          <div className="flex gap-3 items-center">
-                            <span className="flex items-center gap-1">
-                              <BiLike />
-                              29
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <BiDislike />2
-                            </span>
-                            <BiDotsVertical className="cursor-pointer" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-[95%] mt-1 py-2 mb-2">
-                    <div>
-                      <div className="bg-green-600 text-white w-[34px] h-[17px]  flex justify-center items-center rounded text-[12px] font-[500] p-1">
-                        <span>5</span>
-                        <span>⭐</span>
-                      </div>
-                      <p className="mt-[10px] text-[13px] font-bold">
-                        More than perfect
-                      </p>
-                      <div className="mt-[10px]">
-                        <div className="flex gap-3 text-[12px] text-gray-500">
-                          <span>John Jackson</span>
-                          <span>7 Month ago</span>
-                        </div>
-                        <div className="flex justify-between text-[12px] text-gray-500">
-                          <div className="flex items-center gap-1">
-                            <BsFillCheckCircleFill />
-                            Certified Buyer
-                          </div>
-                          <div className="flex gap-3 items-center">
-                            <span className="flex items-center gap-1">
-                              <BiLike />
-                              29
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <BiDislike />2
-                            </span>
-                            <BiDotsVertical className="cursor-pointer" />
+                          <p className="mt-[10px] text-[13px] font-bold">
+                            {items.source}
+                          </p>
+                          <div className="">
+                            <div className="flex gap-3 text-[12px] text-gray-500">
+                              <span>{items.date}</span>
+                            </div>
+                            <div className="flex justify-between text-[12px] mt-2">
+                              {items.content}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
+                    );
+                  })}
                 </TabContent>
               </Tabs>
             </div>

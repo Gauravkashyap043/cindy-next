@@ -51,7 +51,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="w-[96%]">
           <p
             className="product-name truncate text-[15px] text-[#3E4042]"
-            onClick={() => alert(`${product.id}`)}
+            // onClick={() => alert(`${product.id}`)}
           >
             {product.title}
           </p>
