@@ -1,48 +1,51 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ShopBy from "../src/components/ShopBy/ShopBy";
 import HorizontalScrollList from "@/src/components/HorizontalScrollList/HorizontalScrollList";
 import ProductCard from "@/src/components/ProductCard/ProductCard";
 import { TabContent, Tabs } from "@/src/components/HomeTabs/Tabs";
 import { pillButtonData } from "@/utils/data";
-import useSWR from "swr";
 import axios from "axios";
-
-const fetcher = async (url: string) => {
-  const response = await axios.get(url);
-  return response.data;
-};
 
 export default function HomePage() {
   const [pillActive, setPillActive] = useState<number>(pillButtonData[0].id);
   const [pillCategory, setPillCategory] = useState<string>("");
-  const [limit,setLimit] = useState<number>(50)
-  const { data, error } = useSWR<Product[]>(
-    // `https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products?page=1&limit=${limit}`,
-    `https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products?page=1&limit=${limit}`,
-    fetcher
-  );
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<Product[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const limit: number = 50;
+  const getData = () => {
+    setLoading(true);
+    axios
+      .get<{ products: Product[] }>(
+        `https://strange-retina-377105.el.r.appspot.com/v1/serp-api/products?page=${page}&limit=${limit}`
+      )
+      .then((res) => {
+        const newData: any = res.data;
+        console.log(newData);
+        setData((prevProducts) => [...prevProducts, ...newData]);
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
-  if (error) return <p>Loading failed...</p>;
-  if (!data)
-    return (
-      <>
-        <div className="flex justify-center items-center w-full h-screen text-center">
-          <h3 className="animate-bounce text-center">
-            Hold your horses! Our products are getting their fashionably late
-            entrance😉...
-          </h3>
-        </div>
-      </>
-    );
+  useEffect(() => {
+    getData();
+  }, [page]);
 
-  const filteredProducts = data.filter((product: any) => {
-    if (pillActive == 1 || pillCategory === "All") {
-      return true; // Show all products
-    } else {
-      return product.category === pillCategory;
-    }
-  });
+  const handleLoadMore = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  // const filteredProducts = data.filter((product: any) => {
+  //   if (pillActive == 1 || pillCategory === "All") {
+  //     return true; // Show all products
+  //   } else {
+  //     return product.category === pillCategory;
+  //   }
+  // });
 
   return (
     <div className={` m-auto border main-container`}>
@@ -77,7 +80,7 @@ export default function HomePage() {
             <div className="product-card-div">
               {data.map((product: Product) => {
                 if (product.dump?.error) {
-                  return null; 
+                  return null;
                 }
                 return <ProductCard key={product.id} product={product} />;
               })}
@@ -108,9 +111,9 @@ export default function HomePage() {
         <div className="w-full">
           <button
             className="h-[60px] bg-white text-[#575757] w-full mt-[50px]"
-            onClick={() => setLimit(limit+50)}
+            onClick={handleLoadMore}
           >
-            Load More
+            {loading ? "Loading..." : "Load More"}
           </button>
         </div>
       </div>

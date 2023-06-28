@@ -39,13 +39,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="price-cont w-full h-[22px] flex justify-between items-center text-[16px] font-[500]">
           <div className="flex justify-center items-center gap-2">
             <p className="text-[#388E3C]">{product.prices[0]}</p>
-            <div className="border rounded-full px-2 h-[14px] text-[10px] flex justify-center items-center cursor-pointer text-[#388E3C]">
+            {/* <div className="border rounded-full px-2 h-[14px] text-[10px] flex justify-center items-center cursor-pointer text-[#388E3C]">
               ebay
-            </div>
+            </div> */}
           </div>
           {/* <p className="text-[10px] rating-star">⭐⭐⭐⭐⭐</p> */}
           <div className="text-red">
-            <StarRating rating={product.rating} /> 
+            <StarRating rating={product.rating} />
           </div>
         </div>
         <div className="w-[96%]">
