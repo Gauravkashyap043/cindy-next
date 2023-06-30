@@ -96,18 +96,11 @@ export default function HomePage() {
         </TabContent>
         <TabContent label="Explore Our Desi" colorLabel="Collection">
           <div className="product-card-div min-h-[500px]">
-            {/* <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard /> */}
           </div>
         </TabContent>
       </Tabs>
 
       <div className="w-full border  h-[136px] mt-[30px]">
-        {/* <p className="text-[#868686] text-center">
-          You have viewed 72 of 1000 products
-        </p> */}
         <div className="w-full">
           <button
             className="h-[60px] bg-white text-[#575757] w-full mt-[50px]"
